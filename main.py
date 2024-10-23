@@ -47,92 +47,92 @@ def get_data_from_bls(seriesID,startYr,endYr,bls_key,industry_name):
                 series_list.append([seriesId, industry_name, year, period, value])
 
     return series_list
-
+def create_lstm_model(input_shape):
+    model = tf.keras.Sequential([
+        tf.keras.layers.Input(shape=input_shape),
+        tf.keras.layers.LSTM(50, return_sequences=True),
+        tf.keras.layers.LSTM(25),
+        tf.keras.layers.Dense(1)
+    ])
+    model.compile(optimizer='adam', loss='mean_squared_error')
+    return model
 def train_model_and_predict():
     # Sample Time Series Data: Generate a DataFrame for multiple professions
-    date_range = pd.date_range(start='2020-01-01', periods=24, freq='M')
-
-    # Sample professions
+    date_range = pd.date_range(start='2024-01-01', periods=24, freq='ME')
+    number_of_month = 12
+    # Sample professions and states
     professions = ['Software Engineer', 'Nurse', 'Data Scientist', 'Sales Manager', 'Teacher']
+    states = ['California', 'Texas', 'New York', 'Florida', 'Illinois']
+
+    # Generate random job postings and growth rates
     data = {
-        'Date': np.tile(date_range, len(professions)),
-        'Profession': np.repeat(professions, len(date_range)),
-        'Job_Postings': np.random.randint(1000, 5000, size=(len(professions) * len(date_range),)),
-        'Growth_Rate': np.random.uniform(0.01, 0.2, size=(len(professions) * len(date_range),))
+        'Date': np.tile(date_range, len(professions) * len(states)),
+        'Profession': np.repeat(professions, len(date_range) * len(states)),
+        'State': np.tile(states, len(professions) * len(date_range)),
+        'Job_Postings': np.random.randint(1000, 5000, size=(len(professions) * len(states) * len(date_range),)),
+        'Growth_Rate': np.random.uniform(0.01, 0.2, size=(len(professions) * len(states) * len(date_range),))
     }
 
     df = pd.DataFrame(data)
 
     # Calculate Hot Profession Score
     df['Hot_Profession_Score'] = df['Job_Postings'] * df['Growth_Rate']
-
-    # Set the date as the index
     df.set_index('Date', inplace=True)
 
-    # Normalize and prepare data for each profession
-    def create_datasets_for_professions(df, profession, time_step=1):
-        profession_data = df[df['Profession'] == profession][['Hot_Profession_Score']]
-        scaler = MinMaxScaler()
-        scaled_data = scaler.fit_transform(profession_data)
+    # Store predictions
+    predictions = []
 
-        X, y = [], []
-        for i in range(len(scaled_data) - time_step - 1):
-            X.append(scaled_data[i:(i + time_step), 0])
-            y.append(scaled_data[i + time_step, 0])
-        return np.array(X), np.array(y), scaler, profession_data
+    # Train and predict for each profession in each state
+    for state in states:
+        for profession in professions:
+            # Filter data
+            filtered_data = df[(df['Profession'] == profession) & (df['State'] == state)][['Hot_Profession_Score']]
+            scaler = MinMaxScaler()
+            scaled_data = scaler.fit_transform(filtered_data)
 
-    # Train and predict for each profession
-    for profession in professions:
-        X, y, scaler, profession_data = create_datasets_for_professions(df, profession, time_step=3)
+            # Prepare the dataset
+            time_step = 3
+            X, y = [], []
+            for i in range(len(scaled_data) - time_step - 1):
+                X.append(scaled_data[i:(i + time_step), 0])
+                y.append(scaled_data[i + time_step, 0])
+            X, y = np.array(X), np.array(y)
+            X = X.reshape(X.shape[0], X.shape[1], 1)
 
-        # Reshape for LSTM [samples, time steps, features]
-        X = X.reshape(X.shape[0], X.shape[1], 1)
+            # Create and train the LSTM model
+            model = create_lstm_model(input_shape=(X.shape[1], 1))
+            model.fit(X, y, epochs=100, batch_size=1, verbose=0)
 
-        # Split the data into training and testing sets
-        train_size = int(len(X) * 0.8)
-        X_train, X_test = X[:train_size], X[train_size:]
-        y_train, y_test = y[:train_size], y[train_size:]
+            # Make predictions for the next 5 years (60 months)
+            future_predictions = []
+            last_sequence = scaled_data[-time_step:].reshape(1, time_step, 1)
 
-        # Build the LSTM model
-        model = tf.keras.Sequential([
-            tf.keras.layers.LSTM(50, return_sequences=True, input_shape=(X_train.shape[1], 1)),
-            tf.keras.layers.LSTM(25),
-            tf.keras.layers.Dense(1)
-        ])
+            for _ in range(number_of_month):  # Predict 60 months ahead
+                next_prediction = model.predict(last_sequence)
+                future_predictions.append(next_prediction[0, 0])
+                last_sequence = np.append(last_sequence[:, 1:, :], next_prediction.reshape(1, 1, 1), axis=1)
 
-        model.compile(optimizer='adam', loss='mean_squared_error')
+            future_predictions = scaler.inverse_transform(np.array(future_predictions).reshape(-1, 1))
 
-        # Train the model
-        model.fit(X_train, y_train, epochs=100, batch_size=1, verbose=1)
+            # Calculate the average predicted score
+            avg_score = np.mean(future_predictions)
+            predictions.append((state, profession, avg_score))
 
-        # Make predictions
-        train_predict = model.predict(X_train)
-        test_predict = model.predict(X_test)
+    # Create a DataFrame for predictions and find the top 5 hottest jobs for each state
+    predictions_df = pd.DataFrame(predictions, columns=['State', 'Profession', 'Avg_Score'])
 
-        # Inverse transform the predictions to original scale
-        train_predict = scaler.inverse_transform(train_predict)
-        test_predict = scaler.inverse_transform(test_predict)
+    # Sort and get the top 5 hottest jobs for each state
+    top_hottest_jobs = predictions_df.sort_values(by=['State', 'Avg_Score'], ascending=[True, False])
+    top_5_jobs = top_hottest_jobs.groupby('State').head(3)
 
-        # Prepare data for plotting
-        plt.figure(figsize=(12, 6))
-        plt.plot(profession_data.index, profession_data['Hot_Profession_Score'], label='Actual Score', color='blue')
-        train_indices = profession_data.index[3:3 + len(train_predict)]
-        test_indices = profession_data.index[3 + len(train_predict) + 1:]
-
-        plt.plot(train_indices, train_predict, label='Train Predictions', color='orange')
-        plt.plot(test_indices, test_predict, label='Test Predictions', color='red')
-        plt.title(f'{profession} Hot Profession Score Forecast')
-        plt.xlabel('Date')
-        plt.ylabel('Hot Profession Score')
-        plt.legend()
-        plt.show()
-
-        # Print model summary
-        model.summary()
+    # Save the results to a CSV file
+    top_5_jobs.to_csv('hottest_jobs_by_state.csv', index=False)
+    print("Top 5 hottest jobs for each state saved to 'hottest_jobs_by_state.csv'.")
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('Team 90')
     # Sample list of BLS Series IDs for pulling Employment data
+    '''
     series_data = [
         ['CEU0000000001', 'Total nonfarm'],
         ['CEU0500000001', 'Total private'],
@@ -172,10 +172,11 @@ if __name__ == '__main__':
     # Create a DataFrame from the complete_list
     columns = ["seriesID", "industry_name", "year", "period", "value"]
     df_bls = pd.DataFrame(complete_list, columns=columns)
-
+    
     # Display the DataFrame
     print(df_bls)
+    '''
    # get_data_from_bls()
-    #train_model_and_predict()
+    train_model_and_predict()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
