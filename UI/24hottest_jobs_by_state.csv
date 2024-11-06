@@ -1,0 +1,491 @@
+State,Profession,Avg_Score
+Alabama,  Data scientists,591.8598335905441
+Alabama,  Nurse practitioners,416.9361580416883
+Alabama,  Medical and health services managers,374.8040556509095
+Alabama,  Solar photovoltaic installers,362.74083834871936
+Alabama,  Manufactured building and mobile home installers,285.5749149981227
+Alabama,  Computer and information systems managers,278.7345454603821
+Alabama,  Physical therapist assistants,259.43799773875946
+Alabama,"  Loading and moving machine operators, underground mining",256.72903000994387
+Alabama,  Financial examiners,249.27086537735397
+Alabama,  Software developers,231.7596504488063
+Alaska,  Nurse practitioners,31.209510354949117
+Alaska,  Word processors and typists,24.761073621795706
+Alaska,  Medical and health services managers,24.65203751467308
+Alaska,  Solar photovoltaic installers,24.271828864734832
+Alaska,  Occupational therapy assistants,19.57355780045385
+Alaska,"  Nursing instructors and teachers, postsecondary",17.30417368853238
+Alaska,  Data scientists,16.24993407063632
+Alaska,  Manufactured building and mobile home installers,15.10225229925851
+Alaska,  Home health and personal care aides,14.665527213960978
+Alaska,  Telephone operators,13.0122753645586
+Arizona,  Wind turbine service technicians,31.369370815962
+Arizona,  Data scientists,21.832813302691516
+Arizona,  Medical and health services managers,19.20530036494785
+Arizona,  Solar photovoltaic installers,18.678233305077963
+Arizona,  Physician assistants,14.642426754204928
+Arizona,  Nurse practitioners,14.383848228354585
+Arizona,  Software developers,12.945484753362306
+Arizona,  Industrial machinery mechanics,12.628534394330543
+Arizona,  Operations research analysts,11.553939363182023
+Arizona,  Actuaries,10.14616663727688
+Arkansas,  Nurse practitioners,22.681994498298167
+Arkansas,  Solar photovoltaic installers,21.803242961158627
+Arkansas,  Data scientists,16.481727126805485
+Arkansas,  Information security analysts,12.629870299588333
+Arkansas,"  Substance abuse, behavioral disorder, and mental health counselors",12.304694748092325
+Arkansas,  Computer and information research scientists,12.109190962808933
+Arkansas,  Industrial machinery mechanics,11.192684616469935
+Arkansas,  Medical and health services managers,11.17047600968642
+Arkansas,  Epidemiologists,9.206802143163165
+Arkansas,  Telemarketers,8.75843246910334
+California,  Nurse practitioners,13.996014435368465
+California,  Financial examiners,10.792754302382953
+California,  Medical and health services managers,9.315245236331963
+California,  Data scientists,8.485629395572138
+California,"  Patternmakers, metal and plastic",8.157228370954144
+California,  Telephone operators,7.6347981885847505
+California,"  Substance abuse, behavioral disorder, and mental health counselors",7.458443249087106
+California,  Veterinary technologists and technicians,7.0495556148339515
+California,  Prepress technicians and workers,6.439729806316669
+California,  Home health and personal care aides,6.35141057050523
+Colorado,  Nurse practitioners,32.10843714601817
+Colorado,  Data scientists,18.034292480072768
+Colorado,  Solar photovoltaic installers,14.839215470722314
+Colorado,  Medical and health services managers,11.182103499248752
+Colorado,  Home health and personal care aides,10.70531946397117
+Colorado,  Order clerks,10.556948049025065
+Colorado,  Software developers,9.379093957987225
+Colorado,  Psychiatric technicians,9.140089463811973
+Colorado,"  Model makers, metal and plastic",8.159941708014573
+Colorado,  Personal financial advisors,8.12714317099864
+Connecticut,  Nurse practitioners,25.534722305775727
+Connecticut,  Data scientists,14.77814642038112
+Connecticut,"  Loading and moving machine operators, underground mining",12.124333671939667
+Connecticut,  Medical and health services managers,11.734311093088914
+Connecticut,  Veterinary assistants and laboratory animal caretakers,10.83416322818316
+Connecticut,"  Substance abuse, behavioral disorder, and mental health counselors",9.684190430521395
+Connecticut,"  Patternmakers, metal and plastic",9.414833817702617
+Connecticut,  Computer and information systems managers,9.379974562250519
+Connecticut,  Industrial machinery mechanics,8.841799377282214
+Connecticut,  Manufactured building and mobile home installers,7.635516474446763
+Delaware,  Nurse practitioners,26.13245120473154
+Delaware,  Information security analysts,17.33527009531134
+Delaware,  Data scientists,14.812673715030954
+Delaware,  Actuaries,11.159446552765482
+Delaware,  Engine and other machine assemblers,10.46093364818713
+Delaware,  Home health and personal care aides,10.135706066013144
+Delaware,"  Cooks, restaurant",9.843658539868803
+Delaware,  Camera and photographic equipment repairers,9.347504616510827
+Delaware,  File clerks,9.19322265612612
+Delaware,  Industrial machinery mechanics,9.091824103499759
+District of Columbia,  Wind turbine service technicians,37.24806097955341
+District of Columbia,  Nurse practitioners,26.748557211462657
+District of Columbia,  Solar photovoltaic installers,22.89731479002238
+District of Columbia,  Data scientists,15.630619485078583
+District of Columbia,  Foundry mold and coremakers,11.52550923269684
+District of Columbia,  Veterinary technologists and technicians,10.680788800568614
+District of Columbia,  Industrial machinery mechanics,9.524299572682482
+District of Columbia,  Software developers,9.491277841292318
+District of Columbia,  Computer and information systems managers,8.657498245287554
+District of Columbia,  Telemarketers,8.453967086989715
+Florida,  Solar photovoltaic installers,28.79620733888559
+Florida,  Telephone operators,21.997754019825184
+Florida,  Nurse practitioners,17.728845449781982
+Florida,  Data scientists,15.453379134112245
+Florida,  Operations research analysts,13.456965717348211
+Florida,  Medical and health services managers,11.724828026875906
+Florida,  Wind turbine service technicians,8.708031855973347
+Florida,"  Health specialties teachers, postsecondary",8.498039416152865
+Florida,  Home health and personal care aides,8.085957230867447
+Florida,  Speech-language pathologists,7.652525909488401
+Georgia,  Medical and health services managers,24.10009631534501
+Georgia,  Nurse practitioners,23.26190660896542
+Georgia,  Foundry mold and coremakers,21.92032520288335
+Georgia,  Data scientists,20.041622951141356
+Georgia,"  Cutters and trimmers, hand",18.088503840010898
+Georgia,"  Substance abuse, behavioral disorder, and mental health counselors",12.586622211330948
+Georgia,  Occupational therapy assistants,12.251942703494748
+Georgia,  Computer and information systems managers,11.869568231408413
+Georgia,  Structural metal fabricators and fitters,11.360236369757303
+Georgia,  Industrial machinery mechanics,11.112741971723546
+Hawaii,  Solar photovoltaic installers,20.194491941319107
+Hawaii,  Data scientists,19.765882303230654
+Hawaii,  Wind turbine service technicians,14.183246373383378
+Hawaii,  Medical and health services managers,12.806958686490404
+Hawaii,"  Forging machine setters, operators, and tenders, metal and plastic",10.705921951842578
+Hawaii,  Word processors and typists,9.877504016659861
+Hawaii,  Software developers,9.524173391720673
+Hawaii,  Computer and information systems managers,9.510711768099247
+Hawaii,"  Substance abuse, behavioral disorder, and mental health counselors",9.184926977761362
+Hawaii,  Actuaries,8.853859825339454
+Idaho,  Nurse practitioners,23.26677415188887
+Idaho,  Medical and health services managers,22.131220955537046
+Idaho,  Financial examiners,13.247290984910364
+Idaho,  Home health and personal care aides,11.095916219989464
+Idaho,  Operations research analysts,11.001622040159683
+Idaho,  Data scientists,10.990657762880168
+Idaho,  Software developers,10.11874528920798
+Idaho,  Occupational therapy assistants,9.939606042480023
+Idaho,"  Aircraft structure, surfaces, rigging, and systems assemblers",8.876438894890583
+Idaho,  Foundry mold and coremakers,8.315030607111513
+Illinois,  Nurse practitioners,19.202432771175193
+Illinois,  Medical and health services managers,16.048720777981718
+Illinois,  Data scientists,15.535600652021317
+Illinois,  Home health and personal care aides,9.650992079782823
+Illinois,  Computer and information systems managers,7.412600163368974
+Illinois,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",6.581582051655339
+Illinois,  Medical equipment repairers,6.403732829472271
+Illinois,  Veterinarians,6.263911930290693
+Illinois,  Wind turbine service technicians,5.592217199491682
+Illinois,  Speech-language pathologists,5.553693028166542
+Iowa,  Nurse practitioners,22.620589783162682
+Iowa,  Medical and health services managers,19.701678710044266
+Iowa,  Word processors and typists,18.525231386546753
+Iowa,  Data scientists,17.686778468141245
+Iowa,  Prepress technicians and workers,16.43553148700475
+Iowa,  Wind turbine service technicians,12.59737161256534
+Iowa,  Home health and personal care aides,8.305593780920114
+Iowa,  Financial examiners,7.994101042088449
+Iowa,  Computer and information systems managers,7.447483666125916
+Iowa,"  Substance abuse, behavioral disorder, and mental health counselors",6.764202116243768
+Kansas,  Solar photovoltaic installers,32.031732524005264
+Kansas,  Data scientists,16.442447835894498
+Kansas,  Medical and health services managers,15.093719861226882
+Kansas,  Actuaries,14.85437293171455
+Kansas,  Nurse practitioners,11.759545972527087
+Kansas,  Home health and personal care aides,9.289853801461248
+Kansas,  Industrial machinery mechanics,9.166897620196375
+Kansas,"  Roof bolters, mining",8.949847821905935
+Kansas,  Foundry mold and coremakers,8.82914054081808
+Kansas,  Software developers,7.606402321976098
+Kentucky,  Wind turbine service technicians,45.11675796703825
+Kentucky,  Nurse practitioners,26.54118596032525
+Kentucky,  Information security analysts,21.58200045302564
+Kentucky,  Medical and health services managers,20.95655905138224
+Kentucky,  Data scientists,20.013517861670646
+Kentucky,  Physician assistants,18.36747789266274
+Kentucky,"  Substance abuse, behavioral disorder, and mental health counselors",17.33123882541323
+Kentucky,  Veterinary assistants and laboratory animal caretakers,13.846652944530803
+Kentucky,  Computer and information systems managers,11.614346046901387
+Kentucky,  Veterinary technologists and technicians,10.853305362711055
+Louisiana,  Nurse practitioners,16.255744218781427
+Louisiana,  Home health and personal care aides,14.786500889772507
+Louisiana,  Solar photovoltaic installers,12.985649062241185
+Louisiana,  Data scientists,12.287682689766145
+Louisiana,  Prepress technicians and workers,11.677598265354684
+Louisiana,  Medical and health services managers,11.42000320684044
+Louisiana,  Information security analysts,10.955831455472449
+Louisiana,  Software developers,10.467460088855997
+Louisiana,  Structural metal fabricators and fitters,10.303885759631031
+Louisiana,  Computer and information systems managers,9.379431771101538
+Maine,  Wind turbine service technicians,28.05804075966455
+Maine,  Medical and health services managers,21.310101510617624
+Maine,  Nurse practitioners,18.81527202511631
+Maine,  Data scientists,14.786128641636958
+Maine,  Speech-language pathologists,12.508212577361178
+Maine,  Information security analysts,11.724287099601904
+Maine,"  Substance abuse, behavioral disorder, and mental health counselors",11.264713535579455
+Maine,  Veterinary technologists and technicians,10.207776144162871
+Maine,  Home health and personal care aides,10.071362520340058
+Maine,  Computer and information systems managers,9.42064159751976
+Massachusetts,  Data scientists,21.422786670172815
+Massachusetts,  Physician assistants,16.811496996575908
+Massachusetts,  Medical and health services managers,15.475937209091768
+Massachusetts,  Nurse practitioners,13.197325342937665
+Massachusetts,  Industrial machinery mechanics,10.634053893974055
+Massachusetts,  Software developers,9.692686965880297
+Massachusetts,"  Aircraft structure, surfaces, rigging, and systems assemblers",9.092152929879402
+Massachusetts,  Massage therapists,7.667288936493935
+Massachusetts,  Computer and information systems managers,6.592770921569174
+Massachusetts,  Veterinary technologists and technicians,5.9722882354566735
+Michigan,  Nurse practitioners,25.253154429152044
+Michigan,  Data scientists,17.981945255962604
+Michigan,  Physical therapist assistants,14.103426916276582
+Michigan,  Information security analysts,13.779689310019037
+Michigan,  Financial managers,13.122275210654308
+Michigan,  Computer and information research scientists,12.074544324108814
+Michigan,  Home health and personal care aides,9.676692714113907
+Michigan,  Software developers,9.267780493758572
+Michigan,"  Substance abuse, behavioral disorder, and mental health counselors",8.798095946383805
+Michigan,  Computer and information systems managers,8.628108142599153
+Minnesota,  Data scientists,23.427971227307154
+Minnesota,  Nurse practitioners,14.8665838343636
+Minnesota,  Telemarketers,9.38826159097097
+Minnesota,  Medical and health services managers,8.516454355766045
+Minnesota,"  Grinding and polishing workers, hand",8.143883990656064
+Minnesota,  Software developers,7.775527198550605
+Minnesota,  Speech-language pathologists,7.637395986895034
+Minnesota,"  Switchboard operators, including answering service",7.150074839130944
+Minnesota,  Logisticians,6.577121903357278
+Minnesota,"  Cutters and trimmers, hand",6.163323522163441
+Mississippi,  Information security analysts,18.263450004627543
+Mississippi,  Operations research analysts,13.310324242397796
+Mississippi,  Word processors and typists,11.597638339271645
+Mississippi,  Veterinary assistants and laboratory animal caretakers,11.19328402317054
+Mississippi,  Data scientists,10.52161993981416
+Mississippi,  Computer and information systems managers,10.027940654470813
+Mississippi,"  Substance abuse, behavioral disorder, and mental health counselors",10.005995729217371
+Mississippi,  Medical and health services managers,8.965904695441358
+Mississippi,  Home health and personal care aides,8.608839509268696
+Mississippi,  Physical therapist assistants,8.10418426026765
+Missouri,  Data scientists,16.038451810993788
+Missouri,  Nurse practitioners,13.78145551103897
+Missouri,  Medical and health services managers,13.491081913453781
+Missouri,  Software developers,10.194859844616646
+Missouri,"  Substance abuse, behavioral disorder, and mental health counselors",10.165171051567524
+Missouri,  Home health and personal care aides,10.089593728435535
+Missouri,  Industrial machinery mechanics,9.469250395732642
+Missouri,  Actuaries,8.128205521554419
+Missouri,  Physician assistants,7.595861060271742
+Missouri,  Telemarketers,7.56113880260065
+Montana,  Data scientists,29.799982825210463
+Montana,  Wind turbine service technicians,19.756607545003032
+Montana,  Nurse practitioners,16.442158105882303
+Montana,  Medical and health services managers,15.422737480167436
+Montana,"  Refractory materials repairers, except brickmasons",11.993829819117442
+Montana,  Occupational therapy assistants,11.913337170405507
+Montana,  Word processors and typists,11.128234958223635
+Montana,"  Switchboard operators, including answering service",9.364482548748502
+Montana,  Physician assistants,8.53606460644924
+Montana,"  Substance abuse, behavioral disorder, and mental health counselors",8.420974362175597
+Nebraska,  Solar photovoltaic installers,29.455395377871866
+Nebraska,  Nurse practitioners,25.5236932471076
+Nebraska,  Data scientists,20.482990128989048
+Nebraska,  Personal financial advisors,12.185190402815747
+Nebraska,"  Cooks, restaurant",12.01208889438753
+Nebraska,  Medical and health services managers,11.386255100758126
+Nebraska,  Software developers,10.757835822424978
+Nebraska,  Tellers,8.986565165744897
+Nebraska,"  Substance abuse, behavioral disorder, and mental health counselors",8.226533343915069
+Nebraska,  Logisticians,8.020017320632375
+Nevada,  Nurse practitioners,32.307997786676225
+Nevada,  Data scientists,19.555292620084256
+Nevada,  Medical and health services managers,16.477766794065342
+Nevada,  Home health and personal care aides,14.469862042575377
+Nevada,  Computer and information research scientists,13.452688581324281
+Nevada,  Software developers,11.594716767103996
+Nevada,  Solar photovoltaic installers,11.534259322912805
+Nevada,"  Substance abuse, behavioral disorder, and mental health counselors",10.793677933846032
+Nevada,  Computer and information systems managers,10.717118011747056
+Nevada,  Industrial machinery mechanics,9.147714176126373
+New Hampshire,  Nurse practitioners,17.36388726202377
+New Hampshire,  Home health and personal care aides,15.823945700961437
+New Hampshire,  Physical therapist assistants,12.730740230540134
+New Hampshire,  Industrial machinery mechanics,11.57066739462073
+New Hampshire,  Medical and health services managers,10.973889500062874
+New Hampshire,  Data scientists,10.669496488712559
+New Hampshire,  New accounts clerks,10.565435982078746
+New Hampshire,  Veterinary assistants and laboratory animal caretakers,10.359320568614256
+New Hampshire,  Software developers,10.113566287743295
+New Hampshire,  Personal financial advisors,9.355517473205438
+New Jersey,  Information security analysts,21.67311134407125
+New Jersey,  Nurse practitioners,20.16864168829217
+New Jersey,  Data scientists,19.273108888628528
+New Jersey,  Physician assistants,17.473793163566388
+New Jersey,  Medical and health services managers,17.230464368413383
+New Jersey,  Personal financial advisors,14.546315754261023
+New Jersey,  Occupational therapy assistants,14.18553356774993
+New Jersey,  Operations research analysts,12.744487746925152
+New Jersey,  Home health and personal care aides,12.59325612088673
+New Jersey,"  Substance abuse, behavioral disorder, and mental health counselors",12.46941030080498
+New Mexico,  Data scientists,20.364464679365696
+New Mexico,  Nurse practitioners,18.943497028719275
+New Mexico,  Home health and personal care aides,15.736651590470634
+New Mexico,  Medical and health services managers,13.99879510280576
+New Mexico,  Manufactured building and mobile home installers,13.801375949676503
+New Mexico,  Logisticians,11.60883988085042
+New Mexico,"  Substance abuse, behavioral disorder, and mental health counselors",11.126003671909116
+New Mexico,  Financial managers,7.552747901780575
+New Mexico,  Software developers,7.221989677098382
+New Mexico,"  Patternmakers, metal and plastic",6.751345034339046
+New York,  Solar photovoltaic installers,25.36661277114636
+New York,  Nurse practitioners,17.265128276267774
+New York,  Data scientists,14.18882023026565
+New York,  Operations research analysts,12.84386378356067
+New York,  Medical and health services managers,12.357454980126576
+New York,  Home health and personal care aides,10.697166529307005
+New York,"  Substance abuse, behavioral disorder, and mental health counselors",10.15114516607565
+New York,  Epidemiologists,9.206182421059347
+New York,  Industrial machinery mechanics,9.107137175914291
+New York,  Software developers,8.573075341115471
+North Carolina,  Nurse practitioners,28.10652296955476
+North Carolina,  Prepress technicians and workers,20.34298411526028
+North Carolina,  Data scientists,19.442578618689698
+North Carolina,  Home health and personal care aides,12.517818114985756
+North Carolina,  Physical therapist assistants,11.782500090196855
+North Carolina,  Computer and information systems managers,11.512671788647177
+North Carolina,  Medical and health services managers,10.738668130559759
+North Carolina,  Data entry keyers,9.869780720869473
+North Carolina,  Industrial machinery mechanics,9.455300437216302
+North Carolina,  Massage therapists,9.17360782877457
+North Dakota,  Nurse practitioners,19.78644885931034
+North Dakota,  Data scientists,18.442045024160794
+North Dakota,  Medical and health services managers,16.28274467563629
+North Dakota,"  Roof bolters, mining",15.073770718408667
+North Dakota,  Software developers,11.120577581742248
+North Dakota,"  Substance abuse, behavioral disorder, and mental health counselors",10.792828753316257
+North Dakota,  Speech-language pathologists,9.08604464135847
+North Dakota,  Industrial machinery mechanics,8.672730693034948
+North Dakota,  Computer and information systems managers,8.625233234732923
+North Dakota,  Physical therapist assistants,8.182602479616955
+Ohio,  Data scientists,20.590984680247136
+Ohio,  Word processors and typists,18.15434851430063
+Ohio,  Nurse practitioners,18.122392563995966
+Ohio,  Wind turbine service technicians,14.855173949914722
+Ohio,  Computer and information research scientists,11.849863028615928
+Ohio,  Home health and personal care aides,11.204276538380194
+Ohio,  Medical and health services managers,10.22918515117268
+Ohio,  Engine and other machine assemblers,9.812169540254407
+Ohio,  Computer and information systems managers,8.894144212894703
+Ohio,"  Substance abuse, behavioral disorder, and mental health counselors",8.45297805988806
+Oklahoma,  Nurse practitioners,27.621506356567632
+Oklahoma,  Solar photovoltaic installers,25.238198962900658
+Oklahoma,  Data scientists,23.858856955303917
+Oklahoma,  Wind turbine service technicians,23.83632627566209
+Oklahoma,  Physician assistants,19.47043477665324
+Oklahoma,  Word processors and typists,18.676251110784122
+Oklahoma,  Information security analysts,13.061945884931776
+Oklahoma,  Veterinary assistants and laboratory animal caretakers,12.93108826023829
+Oklahoma,  Industrial machinery mechanics,12.131522674071077
+Oklahoma,  Home health and personal care aides,12.103524790366102
+Oregon,  Nurse practitioners,25.113609706106086
+Oregon,  Medical and health services managers,19.097629699892817
+Oregon,  Home health and personal care aides,18.95516236934019
+Oregon,  Data scientists,15.85722467684429
+Oregon,  Occupational therapy assistants,12.801640020930622
+Oregon,  Industrial machinery mechanics,12.59269226006034
+Oregon,  Information security analysts,12.123528312559662
+Oregon,"  Substance abuse, behavioral disorder, and mental health counselors",9.408059429411226
+Oregon,  Foundry mold and coremakers,9.176785077866086
+Oregon,  Software developers,8.06906230097758
+Pennsylvania,  Nurse practitioners,26.97444693735375
+Pennsylvania,  Medical and health services managers,18.46126329656499
+Pennsylvania,  Data scientists,17.50380644743544
+Pennsylvania,  Financial examiners,11.972867098487399
+Pennsylvania,  Massage therapists,9.927426948202115
+Pennsylvania,  Home health and personal care aides,9.18234444796021
+Pennsylvania,  Software developers,8.928512402125255
+Pennsylvania,"  Forging machine setters, operators, and tenders, metal and plastic",8.476960697232359
+Pennsylvania,"  Substance abuse, behavioral disorder, and mental health counselors",6.897132579080879
+Pennsylvania,  Physical therapist assistants,6.883326022255951
+Rhode Island,  Nurse practitioners,30.559731193208773
+Rhode Island,  Data scientists,23.400662498122063
+Rhode Island,  Medical and health services managers,15.540855744891735
+Rhode Island,  Telephone operators,12.942713933691522
+Rhode Island,  Word processors and typists,11.529967650903961
+Rhode Island,  Home health and personal care aides,11.355804618501358
+Rhode Island,  Occupational therapy assistants,10.88576238583608
+Rhode Island,  Software developers,10.212789085759495
+Rhode Island,"  Substance abuse, behavioral disorder, and mental health counselors",10.109217637986694
+Rhode Island,  Epidemiologists,8.911406752620946
+South Carolina,  Solar photovoltaic installers,42.47717064596777
+South Carolina,  Nurse practitioners,26.855280640668994
+South Carolina,  Data scientists,23.51099398398843
+South Carolina,  Data entry keyers,21.371999619974826
+South Carolina,  Word processors and typists,20.703939941766784
+South Carolina,"  Roof bolters, mining",18.698631084922138
+South Carolina,  Software developers,14.527993899030657
+South Carolina,  Home health and personal care aides,13.693035747179152
+South Carolina,  Physician assistants,12.720481297533974
+South Carolina,  Manufactured building and mobile home installers,12.491619667603644
+South Dakota,  Nurse practitioners,23.751735123192205
+South Dakota,  Data scientists,19.243777504965156
+South Dakota,  Physician assistants,17.070161537335125
+South Dakota,  Medical and health services managers,16.892515418773375
+South Dakota,  Solar photovoltaic installers,15.511150735863156
+South Dakota,"  Substance abuse, behavioral disorder, and mental health counselors",13.873280724553075
+South Dakota,  Wind turbine service technicians,11.490909575506107
+South Dakota,  Foundry mold and coremakers,9.990499626982704
+South Dakota,  Home health and personal care aides,9.056670594359671
+South Dakota,"  Grinding and polishing workers, hand",8.878377721363133
+Tennessee,  Nurse practitioners,23.27865305696541
+Tennessee,  Medical and health services managers,15.700741934240954
+Tennessee,  Print binding and finishing workers,13.647891603906913
+Tennessee,  Wind turbine service technicians,13.236787061859033
+Tennessee,"  Refractory materials repairers, except brickmasons",12.955421411008855
+Tennessee,  Camera and photographic equipment repairers,12.180659560307435
+Tennessee,"  Substance abuse, behavioral disorder, and mental health counselors",11.987011225558197
+Tennessee,  Telephone operators,11.360103628555322
+Tennessee,  Data scientists,11.274935188622313
+Tennessee,"  Aircraft structure, surfaces, rigging, and systems assemblers",11.231142628249307
+Texas,  Nurse practitioners,22.284570835202135
+Texas,  Home health and personal care aides,14.88152660721344
+Texas,  Data scientists,12.972828136945317
+Texas,  Order clerks,12.350824674214609
+Texas,  Medical and health services managers,9.222262657613152
+Texas,"  Substance abuse, behavioral disorder, and mental health counselors",9.00880497356008
+Texas,  Word processors and typists,8.12462613500563
+Texas,  Payroll and timekeeping clerks,7.913470441232708
+Texas,  Industrial machinery mechanics,7.764841635519048
+Texas,  Computer and information systems managers,7.575508393473325
+Utah,  Wind turbine service technicians,36.24688097581845
+Utah,  Nurse practitioners,25.155652890821397
+Utah,  Medical and health services managers,20.83413227560406
+Utah,  Data scientists,20.748027946317986
+Utah,  Solar photovoltaic installers,14.436234860401292
+Utah,  Software developers,11.990901918205141
+Utah,  Personal financial advisors,11.104380101107964
+Utah,  Epidemiologists,9.7066222831688
+Utah,  Actuaries,9.688115057892364
+Utah,"  Substance abuse, behavioral disorder, and mental health counselors",9.48382740312046
+Vermont,  Nurse practitioners,22.933772188594816
+Vermont,  Data scientists,19.037820636103383
+Vermont,  Physician assistants,15.179872102139141
+Vermont,  Operations research analysts,14.929221113161804
+Vermont,  Word processors and typists,14.61339095495885
+Vermont,"  Model makers, metal and plastic",12.228802102798396
+Vermont,  Computer and information systems managers,12.054466239186349
+Vermont,  Veterinary technologists and technicians,11.554771440503481
+Vermont,  Wind turbine service technicians,10.158816254109754
+Vermont,  Medical and health services managers,10.126369085712431
+Virginia,  Data scientists,23.336080477501536
+Virginia,  Wind turbine service technicians,19.480805802531847
+Virginia,  Nurse practitioners,18.559263302659115
+Virginia,"  Nursing instructors and teachers, postsecondary",15.227303712023312
+Virginia,  Medical and health services managers,13.987102145078326
+Virginia,  Software developers,13.526631093421123
+Virginia,  Industrial machinery mechanics,12.252878373206253
+Virginia,  Home health and personal care aides,10.69211227731141
+Virginia,"  Roof bolters, mining",9.50508470987878
+Virginia,"  Substance abuse, behavioral disorder, and mental health counselors",9.165962357098286
+Washington,  Nurse practitioners,24.08179583933288
+Washington,  Data scientists,20.897532008133595
+Washington,  Physician assistants,16.88640961988028
+Washington,  Personal financial advisors,14.255094490062818
+Washington,  Solar photovoltaic installers,12.716457354957265
+Washington,  Medical and health services managers,11.51177807841924
+Washington,  Occupational therapy assistants,9.896315941899141
+Washington,  Telephone operators,9.778798119883191
+Washington,  Computer and information systems managers,9.28577213299348
+Washington,  Massage therapists,9.280655397912687
+West Virginia,  Solar photovoltaic installers,34.142416764386866
+West Virginia,  Data scientists,31.524950698744025
+West Virginia,  Nurse practitioners,25.84458372509359
+West Virginia,  Medical and health services managers,25.820425218070245
+West Virginia,  Personal financial advisors,16.768223831845
+West Virginia,  Physical therapist assistants,15.97613887802602
+West Virginia,  Epidemiologists,14.167309877184943
+West Virginia,  Software developers,13.777920083288775
+West Virginia,"  Health specialties teachers, postsecondary",13.663842741874959
+West Virginia,"  Substance abuse, behavioral disorder, and mental health counselors",13.38531408386882
+Wisconsin,  Nurse practitioners,26.345874377757312
+Wisconsin,  Medical and health services managers,15.398579613892437
+Wisconsin,  Data scientists,15.150603249668107
+Wisconsin,  Physical therapist assistants,14.357958960180357
+Wisconsin,  Computer and information systems managers,12.583797127789756
+Wisconsin,"  Loading and moving machine operators, underground mining",12.35417961301192
+Wisconsin,  Home health and personal care aides,9.889975130124489
+Wisconsin,  Industrial machinery mechanics,9.590591846879793
+Wisconsin,  Order clerks,9.424884809438575
+Wisconsin,  Financial managers,8.979778941736823
+Wyoming,  Word processors and typists,34.302850488145715
+Wyoming,  Nurse practitioners,20.941698489373024
+Wyoming,"  Loading and moving machine operators, underground mining",15.787159984908262
+Wyoming,  Data scientists,14.72414370057921
+Wyoming,  Medical and health services managers,14.325187313323989
+Wyoming,  Logisticians,10.397820019039303
+Wyoming,  Personal financial advisors,9.418889847601397
+Wyoming,  Industrial machinery mechanics,9.010263895236292
+Wyoming,"  Substance abuse, behavioral disorder, and mental health counselors",8.994161113035192
+Wyoming,  Home health and personal care aides,7.983168853392702

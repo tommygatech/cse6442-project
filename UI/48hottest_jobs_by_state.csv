@@ -1,0 +1,491 @@
+State,Profession,Avg_Score
+Alabama,"  Roof bolters, mining",820.0192208255635
+Alabama,  Wind turbine service technicians,732.3136710182889
+Alabama,  Foundry mold and coremakers,685.3491960122965
+Alabama,  Word processors and typists,546.4759547808786
+Alabama,  Data scientists,535.1554527082388
+Alabama,  Prepress technicians and workers,504.5144751341406
+Alabama,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",464.721058227775
+Alabama,  Nurse practitioners,454.1278519278987
+Alabama,"  Switchboard operators, including answering service",410.3608851981489
+Alabama,  Print binding and finishing workers,389.338151733217
+Alaska,  Foundry mold and coremakers,50.63705442602904
+Alaska,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",41.341089686663544
+Alaska,  Telemarketers,38.47984721622589
+Alaska,  Nurse practitioners,37.58861935572094
+Alaska,  Timing device assemblers and adjusters,36.912747558124316
+Alaska,  Order clerks,33.3752321179911
+Alaska,  Word processors and typists,31.904312251151847
+Alaska,  Data entry keyers,30.54812619415114
+Alaska,"  Patternmakers, metal and plastic",25.979320168234665
+Alaska,"  Refractory materials repairers, except brickmasons",25.74474425908747
+Arizona,"  Refractory materials repairers, except brickmasons",32.330584354752524
+Arizona,  Nurse practitioners,24.562030308686193
+Arizona,  Telephone operators,24.205514994358094
+Arizona,"  Cutters and trimmers, hand",21.401878377500775
+Arizona,  Data entry keyers,19.527182356618216
+Arizona,  Order clerks,18.499164269831244
+Arizona,  Veterinary technologists and technicians,17.671111842221006
+Arizona,"  Loading and moving machine operators, underground mining",16.58768350828599
+Arizona,  Foundry mold and coremakers,16.504938562505874
+Arizona,  Medical and health services managers,16.370051955482115
+Arkansas,"  Refractory materials repairers, except brickmasons",24.29348011741516
+Arkansas,"  Roof bolters, mining",23.419724494413412
+Arkansas,  Data scientists,20.172673255214487
+Arkansas,"  Patternmakers, metal and plastic",18.974490060286648
+Arkansas,  Word processors and typists,16.9201884090828
+Arkansas,  New accounts clerks,16.18130498212933
+Arkansas,  Print binding and finishing workers,13.66192620257307
+Arkansas,  Medical and health services managers,13.449461298548732
+Arkansas,"  Cutters and trimmers, hand",12.80286448426723
+Arkansas,  Nurse practitioners,12.67120465028998
+California,"  Switchboard operators, including answering service",33.16745378578553
+California,  Manufactured building and mobile home installers,27.47513417902732
+California,  Word processors and typists,26.911706498249327
+California,  Telemarketers,26.786342772400925
+California,  Foundry mold and coremakers,26.50881498279142
+California,"  Door-to-door sales workers, news and street vendors, and related workers",24.897447702345016
+California,"  Roof bolters, mining",19.14177873370536
+California,"  Patternmakers, metal and plastic",18.958879217540304
+California,  Structural metal fabricators and fitters,18.534322359123063
+California,"  Forging machine setters, operators, and tenders, metal and plastic",15.960118440028552
+Colorado,  Data entry keyers,45.459945365498186
+Colorado,  Solar photovoltaic installers,31.780766544034794
+Colorado,  Foundry mold and coremakers,28.52906187603188
+Colorado,  Nurse practitioners,26.20495003304444
+Colorado,"  Door-to-door sales workers, news and street vendors, and related workers",24.58289577536493
+Colorado,  Order clerks,24.500722063164847
+Colorado,"  Patternmakers, metal and plastic",22.727172536650915
+Colorado,  File clerks,20.991814438481903
+Colorado,  Timing device assemblers and adjusters,20.12794833286508
+Colorado,  Tellers,19.134836571577225
+Connecticut,  Telephone operators,32.313380790853934
+Connecticut,  Engine and other machine assemblers,31.969128222390264
+Connecticut,"  Switchboard operators, including answering service",26.323237368057786
+Connecticut,"  Loading and moving machine operators, underground mining",23.299019736188217
+Connecticut,  Payroll and timekeeping clerks,20.33895967562125
+Connecticut,  Timing device assemblers and adjusters,18.30944251004856
+Connecticut,  Data scientists,16.501016958281326
+Connecticut,  File clerks,12.43594685511794
+Connecticut,"  Grinding and polishing workers, hand",12.431246739115958
+Connecticut,  Word processors and typists,11.268177726454917
+Delaware,  Data entry keyers,33.48140366654676
+Delaware,  Data scientists,30.80168794590001
+Delaware,  Telephone operators,20.264290239284378
+Delaware,"  Aircraft structure, surfaces, rigging, and systems assemblers",20.195720432841032
+Delaware,"  Loading and moving machine operators, underground mining",18.70276899871286
+Delaware,  Tellers,18.073437083975033
+Delaware,  Print binding and finishing workers,16.53277775480248
+Delaware,  Payroll and timekeeping clerks,16.137707834207234
+Delaware,  New accounts clerks,15.819794639307338
+Delaware,  Engine and other machine assemblers,15.156280620788364
+District of Columbia,  Nurse practitioners,30.14175117736112
+District of Columbia,"  Patternmakers, metal and plastic",21.91026827792814
+District of Columbia,  Data scientists,20.545829343447082
+District of Columbia,  Data entry keyers,19.711433365635063
+District of Columbia,  Order clerks,18.979531167090446
+District of Columbia,  Prepress technicians and workers,18.79019463547129
+District of Columbia,  Foundry mold and coremakers,17.014857990105654
+District of Columbia,"  Refractory materials repairers, except brickmasons",15.89865981666807
+District of Columbia,  Camera and photographic equipment repairers,13.64434258172364
+District of Columbia,"  Switchboard operators, including answering service",11.38079910872483
+Florida,"  Office machine operators, except computer",23.41780652162511
+Florida,  Tellers,21.588224959107304
+Florida,  Nurse practitioners,19.574432439323697
+Florida,  Order clerks,19.360780307194734
+Florida,"  Loading and moving machine operators, underground mining",19.34363636602455
+Florida,  Data scientists,18.75200400799155
+Florida,  Foundry mold and coremakers,18.24702503836401
+Florida,  Print binding and finishing workers,17.57454116937211
+Florida,"  Forging machine setters, operators, and tenders, metal and plastic",16.275271964396108
+Florida,"  Switchboard operators, including answering service",11.825288783406934
+Georgia,  Word processors and typists,40.85702216872133
+Georgia,"  Aircraft structure, surfaces, rigging, and systems assemblers",37.678521382927435
+Georgia,  Order clerks,32.6909612077508
+Georgia,"  Switchboard operators, including answering service",30.758153921541417
+Georgia,"  Grinding and polishing workers, hand",28.528152276511047
+Georgia,  Telephone operators,28.130067250120415
+Georgia,  Nurse practitioners,27.488608780535213
+Georgia,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",25.86100220977575
+Georgia,"  Refractory materials repairers, except brickmasons",25.524618325961967
+Georgia,"  Roof bolters, mining",23.93123601127893
+Hawaii,  Manufactured building and mobile home installers,29.239470223351372
+Hawaii,"  Roof bolters, mining",26.783092673936363
+Hawaii,  Nurse practitioners,20.50324693600342
+Hawaii,  Data scientists,19.31348071159492
+Hawaii,  Engine and other machine assemblers,19.15895414085705
+Hawaii,"  Refractory materials repairers, except brickmasons",18.183197253148222
+Hawaii,"  Patternmakers, metal and plastic",17.255553845845427
+Hawaii,  Telephone operators,13.966949887753183
+Hawaii,"  Model makers, metal and plastic",13.177779870977533
+Hawaii,"  Aircraft structure, surfaces, rigging, and systems assemblers",13.14266755863933
+Idaho,"  Roof bolters, mining",37.09822433658977
+Idaho,  Telephone operators,31.1483837967594
+Idaho,  Camera and photographic equipment repairers,20.910864856170065
+Idaho,  Medical and health services managers,19.33847641265128
+Idaho,  Tellers,18.3048322663853
+Idaho,"  Switchboard operators, including answering service",17.635643331378855
+Idaho,"  Aircraft structure, surfaces, rigging, and systems assemblers",17.533584315782846
+Idaho,"  Cutters and trimmers, hand",17.10125578205469
+Idaho,  Payroll and timekeeping clerks,16.241317714650062
+Idaho,  Data scientists,16.20726813432318
+Illinois,"  Model makers, metal and plastic",23.558772245381068
+Illinois,  Telemarketers,19.664668969871485
+Illinois,  Manufactured building and mobile home installers,18.498307960710076
+Illinois,  Telephone operators,18.05037342975395
+Illinois,  Nurse practitioners,17.332735402762268
+Illinois,"  Door-to-door sales workers, news and street vendors, and related workers",15.180469370014519
+Illinois,"  Aircraft structure, surfaces, rigging, and systems assemblers",14.98462328592853
+Illinois,  Structural metal fabricators and fitters,14.612491096387282
+Illinois,  Tellers,14.517992370427601
+Illinois,  Order clerks,14.442478636720352
+Iowa,"  Switchboard operators, including answering service",23.671733383401914
+Iowa,  Order clerks,23.437372613826984
+Iowa,  Word processors and typists,20.897221957451194
+Iowa,"  Cutters and trimmers, hand",18.752512216627963
+Iowa,  Telephone operators,17.357602886129033
+Iowa,"  Patternmakers, metal and plastic",16.992789577209148
+Iowa,  Nurse practitioners,16.690796365184323
+Iowa,  New accounts clerks,14.24141508202118
+Iowa,"  Roof bolters, mining",14.126739424627475
+Iowa,  Print binding and finishing workers,14.039033689196275
+Kansas,"  Grinding and polishing workers, hand",28.22735115507739
+Kansas,  Nurse practitioners,27.796659707609148
+Kansas,  Engine and other machine assemblers,24.725505294134333
+Kansas,  Camera and photographic equipment repairers,21.824156727085448
+Kansas,  Word processors and typists,19.327309848249204
+Kansas,  New accounts clerks,18.295320894122113
+Kansas,  Data scientists,17.923834941974807
+Kansas,"  Door-to-door sales workers, news and street vendors, and related workers",17.10459262422235
+Kansas,  Order clerks,15.814101485595847
+Kansas,  Manufactured building and mobile home installers,15.351781617111802
+Kentucky,  Foundry mold and coremakers,33.76314887338731
+Kentucky,  Data scientists,33.19689585273636
+Kentucky,  Data entry keyers,28.7802285323985
+Kentucky,"  Switchboard operators, including answering service",27.078621465064987
+Kentucky,  Nurse practitioners,24.340207967347983
+Kentucky,  Engine and other machine assemblers,23.58842531266602
+Kentucky,  Medical and health services managers,22.144722575544936
+Kentucky,"  Forging machine setters, operators, and tenders, metal and plastic",20.536250444366004
+Kentucky,  Operations research analysts,19.80365493869823
+Kentucky,  Telemarketers,18.869883881935127
+Louisiana,  Word processors and typists,40.84077580278398
+Louisiana,  Data entry keyers,34.123299171148005
+Louisiana,  Print binding and finishing workers,32.66318357829453
+Louisiana,  Tellers,23.612268054688005
+Louisiana,  Camera and photographic equipment repairers,23.24841564888284
+Louisiana,  Foundry mold and coremakers,22.690121811332137
+Louisiana,"  Model makers, metal and plastic",22.312867648336283
+Louisiana,"  Forging machine setters, operators, and tenders, metal and plastic",21.48026656526589
+Louisiana,"  Switchboard operators, including answering service",21.40404587733453
+Louisiana,  Prepress technicians and workers,19.99634837463257
+Maine,  Foundry mold and coremakers,43.744077495746346
+Maine,  Software developers,15.663194037846472
+Maine,"  Forging machine setters, operators, and tenders, metal and plastic",15.048216691513389
+Maine,  Timing device assemblers and adjusters,14.683464753731156
+Maine,  Medical and health services managers,14.292408118212087
+Maine,  Prepress technicians and workers,14.275331905185405
+Maine,  Telemarketers,14.08689467291128
+Maine,  Print binding and finishing workers,14.016344370800818
+Maine,"  Switchboard operators, including answering service",13.10552714040631
+Maine,"  Roof bolters, mining",11.78343404806271
+Massachusetts,  Word processors and typists,65.52275505475124
+Massachusetts,"  Roof bolters, mining",52.34649189184652
+Massachusetts,"  Loading and moving machine operators, underground mining",32.087679396826196
+Massachusetts,  Telemarketers,28.122263673317757
+Massachusetts,"  Door-to-door sales workers, news and street vendors, and related workers",25.895108104567967
+Massachusetts,"  Patternmakers, metal and plastic",22.793632283477688
+Massachusetts,  Print binding and finishing workers,21.73931766512278
+Massachusetts,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",21.582016685130615
+Massachusetts,"  Switchboard operators, including answering service",20.977615265853625
+Massachusetts,  Engine and other machine assemblers,20.413063933554554
+Michigan,"  Roof bolters, mining",31.98844206991299
+Michigan,  Nurse practitioners,28.910032274052146
+Michigan,"  Loading and moving machine operators, underground mining",23.657607128918063
+Michigan,  Data scientists,23.163035803077594
+Michigan,  Word processors and typists,22.398985024262373
+Michigan,  New accounts clerks,20.739479415604716
+Michigan,"  Switchboard operators, including answering service",20.577110929529784
+Michigan,  Foundry mold and coremakers,18.966304123978464
+Michigan,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",17.30332797439668
+Michigan,"  Cutters and trimmers, hand",17.217447055597578
+Minnesota,  Order clerks,31.45480268326435
+Minnesota,  File clerks,25.93222550155437
+Minnesota,  Data entry keyers,23.327783946674955
+Minnesota,  Structural metal fabricators and fitters,21.912745230051996
+Minnesota,  Timing device assemblers and adjusters,21.545998267028295
+Minnesota,"  Patternmakers, metal and plastic",20.18517533810963
+Minnesota,"  Cutters and trimmers, hand",18.255746532119527
+Minnesota,"  Switchboard operators, including answering service",17.29310202265313
+Minnesota,  Data scientists,17.07983998745809
+Minnesota,"  Aircraft structure, surfaces, rigging, and systems assemblers",16.881352838093616
+Mississippi,  Telephone operators,41.904920855928324
+Mississippi,"  Patternmakers, metal and plastic",26.5598587322239
+Mississippi,  Word processors and typists,20.075739569195584
+Mississippi,"  Refractory materials repairers, except brickmasons",19.816630641151573
+Mississippi,  Data entry keyers,18.565627022089075
+Mississippi,"  Loading and moving machine operators, underground mining",16.939994397377188
+Mississippi,  Nurse practitioners,16.369668010142394
+Mississippi,  Print binding and finishing workers,16.004382129594777
+Mississippi,  Home health and personal care aides,15.716263137001542
+Mississippi,"  Cutters and trimmers, hand",15.692440352873675
+Missouri,"  Roof bolters, mining",41.340829731204934
+Missouri,"  Loading and moving machine operators, underground mining",31.530437695669395
+Missouri,"  Cutters and trimmers, hand",24.988619745067865
+Missouri,"  Grinding and polishing workers, hand",24.194471563623836
+Missouri,  Wind turbine service technicians,20.68981209755413
+Missouri,  Word processors and typists,19.720828923812995
+Missouri,  Manufactured building and mobile home installers,17.79150015306111
+Missouri,  Telemarketers,16.409553540937612
+Missouri,  Speech-language pathologists,15.745765647970194
+Missouri,  Foundry mold and coremakers,15.187761992282512
+Montana,"  Aircraft structure, surfaces, rigging, and systems assemblers",30.11159365732998
+Montana,  Nurse practitioners,28.48745802932379
+Montana,  Manufactured building and mobile home installers,26.245682189119037
+Montana,  Massage therapists,24.95667355744732
+Montana,  Print binding and finishing workers,22.508195657770354
+Montana,  Data entry keyers,18.01057530595539
+Montana,"  Refractory materials repairers, except brickmasons",17.719349581712397
+Montana,  Foundry mold and coremakers,17.35790215489159
+Montana,"  Switchboard operators, including answering service",17.345607830353497
+Montana,"  Cutters and trimmers, hand",16.91059173094065
+Nebraska,  Wind turbine service technicians,31.924550913902397
+Nebraska,  Nurse practitioners,23.799782361433557
+Nebraska,  Data entry keyers,20.333854551084634
+Nebraska,  Computer and information research scientists,20.131516392255083
+Nebraska,  Telemarketers,18.766875096778488
+Nebraska,  Timing device assemblers and adjusters,16.532178880411735
+Nebraska,  Medical and health services managers,16.44605033716171
+Nebraska,  Telephone operators,15.834389959542152
+Nebraska,"  Model makers, metal and plastic",15.29024978123058
+Nebraska,  Occupational therapy assistants,14.625579209365313
+Nevada,  Word processors and typists,31.688181398891356
+Nevada,  Nurse practitioners,26.348934274182337
+Nevada,  Order clerks,26.02937234828515
+Nevada,  Data scientists,23.251431805354006
+Nevada,  Manufactured building and mobile home installers,21.66730405057574
+Nevada,  Data entry keyers,17.98415187991214
+Nevada,"  Refractory materials repairers, except brickmasons",17.317078693747906
+Nevada,"  Switchboard operators, including answering service",13.255524641281307
+Nevada,  Camera and photographic equipment repairers,13.238102937843957
+Nevada,  Payroll and timekeeping clerks,12.892571330063214
+New Hampshire,  Telephone operators,32.033005025349354
+New Hampshire,"  Roof bolters, mining",31.592540304107985
+New Hampshire,  Word processors and typists,28.45516548491496
+New Hampshire,  Engine and other machine assemblers,25.58694796144684
+New Hampshire,  Structural metal fabricators and fitters,21.790356949974967
+New Hampshire,"  Model makers, metal and plastic",21.59377137549049
+New Hampshire,"  Loading and moving machine operators, underground mining",21.266763742786335
+New Hampshire,  Nurse practitioners,21.18661628006352
+New Hampshire,  Order clerks,21.073591413427128
+New Hampshire,  Data entry keyers,20.681127685269065
+New Jersey,  Information security analysts,48.20528308516962
+New Jersey,  Computer and information research scientists,32.97889260064691
+New Jersey,  Nurse practitioners,28.866748410033154
+New Jersey,  Medical and health services managers,19.275023982259462
+New Jersey,"  Office machine operators, except computer",15.29567795311273
+New Jersey,"  Switchboard operators, including answering service",12.06369732722517
+New Jersey,  Industrial machinery mechanics,10.335925387569898
+New Jersey,  Solar photovoltaic installers,9.90149893467079
+New Jersey,  Manufactured building and mobile home installers,9.620907705373343
+New Jersey,  Home health and personal care aides,9.18376220001029
+New Mexico,  Word processors and typists,41.34698716639767
+New Mexico,  Foundry mold and coremakers,32.4221309689525
+New Mexico,"  Switchboard operators, including answering service",27.97431575113012
+New Mexico,  Nurse practitioners,26.648600403207535
+New Mexico,"  Loading and moving machine operators, underground mining",25.30872814513152
+New Mexico,  File clerks,25.14439877934015
+New Mexico,  Timing device assemblers and adjusters,20.11684127157711
+New Mexico,  Software developers,20.1157360062823
+New Mexico,"  Roof bolters, mining",19.62621401886642
+New Mexico,"  Office machine operators, except computer",19.198425805043087
+New York,  Veterinary assistants and laboratory animal caretakers,18.39296650074101
+New York,  Medical and health services managers,17.838586142118256
+New York,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",17.72715048673693
+New York,  Prepress technicians and workers,17.14964288377045
+New York,  Structural metal fabricators and fitters,13.336602556249858
+New York,  Nurse practitioners,12.893126343680246
+New York,  Foundry mold and coremakers,12.038097804541493
+New York,  Manufactured building and mobile home installers,11.474433212695246
+New York,  Timing device assemblers and adjusters,11.136562838469823
+New York,  File clerks,10.908793173007021
+North Carolina,  Information security analysts,31.490461252144186
+North Carolina,  Telephone operators,22.413773245789354
+North Carolina,  Prepress technicians and workers,20.683449855501383
+North Carolina,"  Roof bolters, mining",19.194825607207736
+North Carolina,  Manufactured building and mobile home installers,16.17558079073154
+North Carolina,  Structural metal fabricators and fitters,15.572233925056656
+North Carolina,"  Switchboard operators, including answering service",14.293177837364489
+North Carolina,  Data scientists,14.149793239387172
+North Carolina,  Tellers,13.877820807262514
+North Carolina,"  Forging machine setters, operators, and tenders, metal and plastic",11.730173783073232
+North Dakota,  Solar photovoltaic installers,67.79302613948555
+North Dakota,  Word processors and typists,26.1042062307388
+North Dakota,  Nurse practitioners,25.064757452503297
+North Dakota,  Financial examiners,19.52553319628586
+North Dakota,  Telephone operators,19.456430373823274
+North Dakota,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",18.37749290217899
+North Dakota,"  Patternmakers, metal and plastic",14.598781966289621
+North Dakota,"  Refractory materials repairers, except brickmasons",13.724522636857301
+North Dakota,  Medical and health services managers,13.681008582595254
+North Dakota,"  Grinding and polishing workers, hand",13.342660190760641
+Ohio,  Word processors and typists,53.719398590998395
+Ohio,  Prepress technicians and workers,23.254122588013036
+Ohio,"  Switchboard operators, including answering service",22.78189274022455
+Ohio,  Medical equipment repairers,20.496587806687174
+Ohio,  Telemarketers,19.781336655133988
+Ohio,  Manufactured building and mobile home installers,18.085961636795776
+Ohio,  Data scientists,17.560739351521875
+Ohio,  Print binding and finishing workers,15.320581177197022
+Ohio,  File clerks,15.13324943077901
+Ohio,  Nurse practitioners,14.920063457422984
+Oklahoma,"  Switchboard operators, including answering service",46.86975203255579
+Oklahoma,  Word processors and typists,39.797847587653315
+Oklahoma,  Foundry mold and coremakers,35.71632680605067
+Oklahoma,  Data scientists,32.67615265215782
+Oklahoma,  Nurse practitioners,28.056786857082148
+Oklahoma,"  Model makers, metal and plastic",27.46860192830341
+Oklahoma,  Medical and health services managers,26.58119950538919
+Oklahoma,"  Roof bolters, mining",22.59860398514016
+Oklahoma,"  Loading and moving machine operators, underground mining",18.881859729748985
+Oklahoma,  Engine and other machine assemblers,18.61414708527216
+Oregon,  Telemarketers,27.279183489107083
+Oregon,  Data scientists,21.164700140338944
+Oregon,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",19.506777453010738
+Oregon,  Manufactured building and mobile home installers,15.834430304626018
+Oregon,"  Aircraft structure, surfaces, rigging, and systems assemblers",15.387149062785232
+Oregon,  Tellers,15.048639106979833
+Oregon,  Word processors and typists,14.8966022091078
+Oregon,  Camera and photographic equipment repairers,14.664284643293973
+Oregon,  File clerks,14.328011624177398
+Oregon,  Telephone operators,13.098337591465679
+Pennsylvania,  Engine and other machine assemblers,39.00677249294984
+Pennsylvania,  Print binding and finishing workers,35.92272222202609
+Pennsylvania,  Word processors and typists,33.77330110748701
+Pennsylvania,  Nurse practitioners,28.78633691023136
+Pennsylvania,"  Roof bolters, mining",25.101264455280738
+Pennsylvania,  Telemarketers,24.14869743520164
+Pennsylvania,"  Switchboard operators, including answering service",23.371159588575505
+Pennsylvania,  File clerks,22.54693909639667
+Pennsylvania,  Camera and photographic equipment repairers,20.344069724811423
+Pennsylvania,  Order clerks,16.367185331828935
+Rhode Island,  Nurse practitioners,25.1383708030957
+Rhode Island,  Manufactured building and mobile home installers,25.09085863206035
+Rhode Island,  Timing device assemblers and adjusters,22.38832051930018
+Rhode Island,  Prepress technicians and workers,22.125042401720695
+Rhode Island,  Telephone operators,21.626794273815204
+Rhode Island,  Structural metal fabricators and fitters,20.273586748414317
+Rhode Island,  Word processors and typists,19.058191837416686
+Rhode Island,"  Loading and moving machine operators, underground mining",18.28245335298566
+Rhode Island,"  Patternmakers, metal and plastic",16.969170769973235
+Rhode Island,  Tellers,16.6826545814698
+South Carolina,  Word processors and typists,57.67477061038534
+South Carolina,"  Roof bolters, mining",45.78230889924458
+South Carolina,  Foundry mold and coremakers,27.972168896296438
+South Carolina,"  Switchboard operators, including answering service",27.918957830480053
+South Carolina,"  Model makers, metal and plastic",16.06993922323476
+South Carolina,  Information security analysts,15.753528159929807
+South Carolina,"  Loading and moving machine operators, underground mining",15.629050553426064
+South Carolina,  Data entry keyers,15.594516277290126
+South Carolina,  Medical and health services managers,15.336876135487737
+South Carolina,"  Substance abuse, behavioral disorder, and mental health counselors",13.396049811649098
+South Dakota,  Nurse practitioners,30.118622566775226
+South Dakota,  Foundry mold and coremakers,29.19857044825319
+South Dakota,  Prepress technicians and workers,20.10992647114036
+South Dakota,  Payroll and timekeeping clerks,19.291395685654308
+South Dakota,  Word processors and typists,18.76609732715879
+South Dakota,  Camera and photographic equipment repairers,17.778208232344227
+South Dakota,"  Switchboard operators, including answering service",13.246013034988449
+South Dakota,  Telemarketers,12.548237956620667
+South Dakota,  Manufactured building and mobile home installers,11.536177249622014
+South Dakota,  Timing device assemblers and adjusters,10.245751658044263
+Tennessee,  Data entry keyers,43.35349739160679
+Tennessee,"  Roof bolters, mining",41.96850323215124
+Tennessee,"  Switchboard operators, including answering service",29.708526412303907
+Tennessee,"  Cutters and trimmers, hand",24.48612506517703
+Tennessee,  Order clerks,24.45376998989804
+Tennessee,  Nurse practitioners,23.031894204083134
+Tennessee,  Prepress technicians and workers,22.670968968603802
+Tennessee,"  Forging machine setters, operators, and tenders, metal and plastic",20.851049155665226
+Tennessee,"  Patternmakers, metal and plastic",20.575879514108493
+Tennessee,  Structural metal fabricators and fitters,18.896149141949866
+Texas,  Engine and other machine assemblers,34.2578749724649
+Texas,  Manufactured building and mobile home installers,32.68691266447103
+Texas,  Telemarketers,29.106735278342853
+Texas,  Telephone operators,24.209988298431927
+Texas,"  Aircraft structure, surfaces, rigging, and systems assemblers",23.550854144918322
+Texas,"  Loading and moving machine operators, underground mining",19.238100245614127
+Texas,"  Grinding and polishing workers, hand",16.53951213351197
+Texas,"  Forging machine setters, operators, and tenders, metal and plastic",16.33718740729474
+Texas,"  Switchboard operators, including answering service",16.0359002748278
+Texas,  New accounts clerks,14.56078893979416
+Utah,  Nurse practitioners,26.70823176732569
+Utah,  Wind turbine service technicians,24.01209017540936
+Utah,  Telemarketers,22.982964352731113
+Utah,  Telephone operators,19.399836845605574
+Utah,  Word processors and typists,18.658534032740775
+Utah,  New accounts clerks,17.758996371825962
+Utah,"  Cutters and trimmers, hand",15.898189588003254
+Utah,  Medical and health services managers,14.911495798984447
+Utah,"  Loading and moving machine operators, underground mining",14.232998941559835
+Utah,  Print binding and finishing workers,11.559334328999034
+Vermont,  Data entry keyers,39.190470748255485
+Vermont,  Nurse practitioners,31.639136568091356
+Vermont,"  Grinding and polishing workers, hand",21.430275361053358
+Vermont,  Timing device assemblers and adjusters,19.716903511140924
+Vermont,  Engine and other machine assemblers,19.00949327952196
+Vermont,  Telemarketers,17.04457960831688
+Vermont,"  Switchboard operators, including answering service",15.656011591126145
+Vermont,  Order clerks,15.05339211274985
+Vermont,  Prepress technicians and workers,13.87906308819233
+Vermont,"  Substance abuse, behavioral disorder, and mental health counselors",11.133870286928683
+Virginia,"  Roof bolters, mining",38.56822612505686
+Virginia,  Order clerks,34.470566572480955
+Virginia,  Telephone operators,27.946777794343976
+Virginia,"  Aircraft structure, surfaces, rigging, and systems assemblers",24.505751546981543
+Virginia,"  Refractory materials repairers, except brickmasons",20.568062470903346
+Virginia,  Structural metal fabricators and fitters,20.37244479323766
+Virginia,  Telemarketers,19.99075792056403
+Virginia,  Tellers,18.75003420263883
+Virginia,  Epidemiologists,16.272718714206395
+Virginia,  New accounts clerks,14.81319752791795
+Washington,  Nurse practitioners,20.58719138543839
+Washington,"  Aircraft structure, surfaces, rigging, and systems assemblers",19.211817222515823
+Washington,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",15.66303779841303
+Washington,  Data scientists,15.498448559731244
+Washington,  Timing device assemblers and adjusters,14.044234629926246
+Washington,"  Loading and moving machine operators, underground mining",13.854251007321224
+Washington,  Veterinary technologists and technicians,13.710041756079299
+Washington,  Payroll and timekeeping clerks,13.665255914557838
+Washington,  Computer and information research scientists,9.35025990287111
+Washington,"  Forging machine setters, operators, and tenders, metal and plastic",9.344538514025624
+West Virginia,"  Cutters and trimmers, hand",23.39228820822895
+West Virginia,  Computer and information research scientists,21.06267525184387
+West Virginia,  Structural metal fabricators and fitters,20.9281078768005
+West Virginia,  Nurse practitioners,19.716313301789814
+West Virginia,  New accounts clerks,18.762824081040208
+West Virginia,  Medical and health services managers,18.73026647710681
+West Virginia,  Actuaries,17.222608249954614
+West Virginia,  Information security analysts,15.743331530211108
+West Virginia,  Financial managers,15.542426643603411
+West Virginia,"  Model makers, metal and plastic",12.66438047180244
+Wisconsin,"  Loading and moving machine operators, underground mining",31.730980011233708
+Wisconsin,  Word processors and typists,27.900797080947843
+Wisconsin,  Telemarketers,26.638307979073815
+Wisconsin,  Data scientists,19.764656029087224
+Wisconsin,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",19.758250192501762
+Wisconsin,"  Door-to-door sales workers, news and street vendors, and related workers",19.40339473712265
+Wisconsin,  Foundry mold and coremakers,18.66376800871464
+Wisconsin,  Structural metal fabricators and fitters,17.92043461330275
+Wisconsin,"  Roof bolters, mining",17.132225808233787
+Wisconsin,  New accounts clerks,15.681822283102525
+Wyoming,  Manufactured building and mobile home installers,30.791067427769843
+Wyoming,"  Switchboard operators, including answering service",28.1801283386116
+Wyoming,  Nurse practitioners,27.215272266508475
+Wyoming,"  Grinding and polishing workers, hand",23.191648616363864
+Wyoming,  Engine and other machine assemblers,21.81464356777768
+Wyoming,  Prepress technicians and workers,21.280087519984964
+Wyoming,  Payroll and timekeeping clerks,18.39066051784372
+Wyoming,  Data scientists,17.914196932682966
+Wyoming,"  Drilling and boring machine tool setters, operators, and tenders, metal and plastic",16.60591437128186
+Wyoming,"  Refractory materials repairers, except brickmasons",16.14231098518762
