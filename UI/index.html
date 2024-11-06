@@ -2,161 +2,304 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <style type="text/css">
+    /* Style for Custom Tooltip */
+    div.tooltip {   
+        position: absolute;           
+        text-align: center;           
+        width: 120px;                  
+        height: 60px;                 
+        padding: 2px;             
+        font: 12px sans-serif;        
+        background: white;   
+        border: 0px;      
+        border-radius: 8px;           
+        pointer-events: none;         
+    }
 
-/* On mouse hover, lighten state color */
-path:hover {
-	fill-opacity: .7;
-}
+    /* Style for states highlighted */
+    .state-highlight {
+        stroke: black;
+        stroke-width: 2px;
+        fill: yellow !important;
+    }
 
-/* Style for Custom Tooltip */
-div.tooltip {   
- 	position: absolute;           
-	text-align: center;           
-	width: 60px;                  
-	height: 28px;                 
-	padding: 2px;             
-	font: 12px sans-serif;        
-	background: white;   
-	border: 0px;      
-	border-radius: 8px;           
-	pointer-events: none;         
-}
-        
-/* Legend Font Style */
-body {
-	font: 11px sans-serif;
-}
-        
-/* Legend Position Style */
-.legend {
-	position:absolute;
-	left:800px;
-	top:350px;
-}
+    body {
+        font: 11px sans-serif;
+    }
 
+    /* Floating div for profession dropdown */
+    .floating-div {
+        margin: 20px;
+        float: left;
+    }
+
+    /* Floating div for bar chart, positioned to the left */
+    .floating-div-right {
+        margin: 20px;
+        float: left; /* Changed to float the bar chart to the left */
+        width: 500px; /* Set a width for the bar chart */
+    }
+
+    /* Bar chart styles */
+    .bar {
+        fill: steelblue;
+    }
+
+    .axis--x path {
+        display: none;
+    }
+
+    .axis--y line {
+        stroke: lightgray;
+    }
+
+    .axis--y path {
+        display: none;
+    }
+
+    /* Adjust the map area to account for the floated divs */
+    /* Style for the map container */
+    #map {
+        clear: both; /* Clear floats, ensuring it starts below the floating divs */
+        width: 80%;  /* Set width for the map container */
+        height: 600px; /* Set the height for the map */
+        margin: 20px;
+    }
 </style>
 </head>
 <body>
-	<div id="professionPopup"></div>
+<div id="YearSelection" class="floating-div">
+    <select id="yearDropdown">
+        <option value="none">Select Forecast length</option>
+        <option value="Year_1">Year 1</option>
+        <option value="Year_2">Year 2</option>
+        <option value="Year_3">Year 3</option>
+        <option value="Year_4">Year 4</option>
+        <option value="Year_5">Year 5</option>
+    </select>
+</div>
+
+<div id="professionSelection" class="floating-div">
+    <select id="professionDropDown">
+        <!-- Dropdown populated dynamically -->
+    </select>
+</div>
+<div id="map">
+    <!-- Map will be rendered here -->
+</div>
+<div id="barChart" class="floating-div-right">
+    <!-- Bar chart will be rendered here -->
+</div>
+
+
+
 <script type="text/javascript">
+    var professionData=[];
+    var filename="12hottest_jobs_by_state.csv"
+    const margin = { top: 20, right: 30, bottom: 40, left: 40 };
+    const width = 1000 - margin.left - margin.right;
+    const height = 600 - margin.top - margin.bottom;
+    const barChartLeft =margin.left ;
+	const barChartTop = margin.top ;
+    var svgBartChart = d3.select("#barChart")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + barChartLeft  + "," + barChartTop + ")");
+    var svg = d3.select("#map")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left  + "," + margin.top + ")");
+    // Tooltip for displaying profession info
+    var div = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
-		
-//Width and height of map
-var width = 1000;
-var height = 600;
+    function loadCSVAndPopulateDropdown() {
+        d3.csv(filename).then(function(data) {
+            const professions = Array.from(new Set(data.map(d => d.Profession.trim())));
+            const selectElement = d3.select("#professionDropDown");
 
-// D3 Projection
-var projection = d3.geo.albersUsa()
-				   .translate([width/2, height/2])    // translate to center of screen
-				   .scale([1000]);          // scale things down so see entire US
-        
-// Define path generator
-var path = d3.geo.path()               // path generator that will convert GeoJSON to SVG paths
-		  	 .projection(projection);  // tell path generator to use albersUsa projection
+            selectElement.append("option")
+                .attr("value", "")
+                .text("Select a profession");
 
-		
-// Define linear scale for output
-var color = d3.scale.linear()
-			  .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
+            selectElement.selectAll("option")
+                .data(professions)
+                .enter()
+                .append("option")
+                .attr("value", d => d)
+                .text(d => d);
+        }).catch(function(error) {
+            console.error("Error loading the CSV file:", error);
+        });
+    }
 
-var legendText = ["*", "*", "*", "*"];
+    // Event listener for profession dropdown change
+    d3.select("#professionDropDown").on("change", function(event) {
+        const selectedProfession = event.target.value;
 
-//Create SVG element and append map to the SVG
-var svg = d3.select("body")
-			.append("svg")
-			.attr("width", width)
-			.attr("height", height);
-        
-// Append Div for tooltip to SVG
-var div = d3.select("body")
-		    .append("div")   
-    		.attr("class", "tooltip")               
-    		.style("opacity", 0);
+        // Reset state styles
+        svg.selectAll("path")
+            .attr("class", "")  // Reset previous class
+            .style("fill", function(d) {
+                // Default color for all states
+                return "lightblue";
+            });
 
-// Load in my states data!
-var professionData=[];
-d3.csv("hottest_jobs_by_state.csv", function(data) {
-		color.domain([0,1,2,3]); // setting the range of the input data
-		// Group professions by state
-		var professionsByState = d3.nest()
-		.key(function(d) { return d.State; })
-		.entries(data);
-		// Sort and take the top 3 professions for each state
-		professionsByState.forEach(function(d) {
-			d.values.sort(function(a, b) { return d3.descending(+a.Avg_Score, +b.Avg_Score); });
-			d.topProfessions = d.values.slice(0, 3);
-		});
-        console.dir(professionsByState);
-		professionData = professionsByState;
-// Load GeoJSON data and merge with states data
-		
-});
+        // Highlight the matching states
+        svg.selectAll("path")
+            .filter(function(d) {
+                // Check if the state's top professions match the selected profession
+                return d.properties.topProfessions &&
+                    d.properties.topProfessions.some(p => p.Profession.trim() === selectedProfession);
+            })
+            .attr("class", "state-highlight")  // Add class to highlight the state
+            .style("fill", "yellow"); // You can adjust this color as needed
 
-d3.json("us-states.json", function(json) {
-		// Grab State Name
-	
-		// Find the corresponding state inside the GeoJSON
-		for (var j = 0; j < json.features.length; j++)  {
-			// Loop through each state data value in the .csv file
-			for (var i = 0; i < professionData.length; i++) {
-						var dataState = professionData[i].key;
-						//console.dir(professionData);
-		                console.log(dataState);
-						var jsonState = json.features[j].properties.name;
-						if (dataState == jsonState) {
-						json.features[j].properties.topProfessions = professionData[i].topProfessions;
-						// Stop looking through the JSON
-						
-						break;
-						}
-					
-			}
-	}
-		
-// Bind the data to the SVG and create one path per GeoJSON feature
-	svg.selectAll("path")
-		.data(json.features)
-		.enter()
-		.append("path")
-		.attr("d", path)
-		.style("stroke", "#fff")
-		.style("stroke-width", "1")
-		.style("fill", function(d) {
+       
+    });
 
-		// Get data value
-		var value = d.properties.visited;
+    function loadData(filename) {
+        d3.csv(filename).then(function(data) {
+            // Group professions by state
+            var professionsByState = d3.groups(data, d => d.State);
 
-		if (value) {
-		//If value exists…
-		return color(value);
-		} else {
-		//If value is undefined…
-		return "rgb(213,222,217)";
-		}
-		})
-		.on("mouseover", function(d) {
-			div.transition()
-				.duration(200)
-				.style("opacity", .9);
-			var professions = d.properties.name  +"<br>" + (d.properties.topProfessions || []).map(function(p) {
-				return p.Profession + ": " + p.Avg_Score;
-			}).join("<br/>"); // Format for tooltip display
-			div.html(professions) // Display the top professions
-				.style("left", (d3.event.pageX + 5) + "px")
-				.style("top", (d3.event.pageY - 28) + "px");
-		})
-		.on("mouseout", function(d) {
-			div.transition()
-				.duration(500)
-				.style("opacity", 0);
-		});
+            // Process data to get top 3 professions for each state
+            var processedData = professionsByState.map(function(d) {
+                const state = d[0];
+                const professions = d[1];
 
-	
+                // Sort professions by Avg_Score
+                professions.sort((a, b) => d3.descending(a.Avg_Score, b.Avg_Score));
 
-});
+                return {
+                    State: state,
+                    topProfessions: professions.slice(0, 3) // Take top 3 professions
+                };
+            });
 
+            // Store the result in professionData
+            professionData = processedData;
+
+            // Load the GeoJSON data
+            d3.json("us-states.json").then(function(json) {
+                // Merge the profession data with GeoJSON states
+                json.features.forEach(function(stateFeature) {
+                    const stateName = stateFeature.properties.name;
+                    const stateData = professionData.find(d => d.State === stateName);
+                    if (stateData) {
+                        stateFeature.properties.topProfessions = stateData.topProfessions;
+                    }
+                });
+
+                // Bind the GeoJSON data to SVG paths and create map
+                svg.selectAll("path")
+                    .data(json.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", d3.geoPath().projection(d3.geoAlbersUsa()))
+                    .style("stroke", "#fff")
+                    .style("stroke-width", "1")
+                    .style("fill", "lightblue")
+                    .on("mouseover", function(event, d) {
+                        div.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+
+                        const tableContent = `
+                            <strong>State:</strong> ${d.properties.name}<br/><br/>
+                            <table border="1" cellpadding="5">
+                            <thead>
+                                <tr>
+                                <th>Profession</th>
+                                <th>Average Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${d.properties.topProfessions.map(p => `
+                                    <tr>
+                                        <td>${p.Profession}</td>
+                                        <td>${p.Avg_Score}</td>
+                                    </tr>`).join("")}
+                            </tbody>
+                            </table>`;
+                        div.html(tableContent)
+                            .style("left", (d3.pointer(event)[0] + 5) + "px")
+                            .style("top", (d3.pointer(event)[1] - 28) + "px");
+                             // Call the function to render the bar chart
+                        renderBarChart(d.properties.topProfessions);
+                    })
+                    .on("mouseout", function() {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
+            }).catch(function(error) {
+                console.error("Error loading the GeoJSON file:", error);
+            });
+        }).catch(function(error) {
+            console.error("Error loading the CSV file:", error);
+        });
+    }
+
+    // Function to render the bar chart for the selected state or profession
+    function renderBarChart(selectedProfession) {
+        // Find the data for the selected profession
+        /*
+        const stateData = professionData.find(d => d.topProfessions.some(p => p.Profession.trim() === selectedProfession));
+        if (!stateData) return;  // Exit if no data found for the selected profession
+
+        // Filter the top 3 professions
+        const topProfessions = stateData.topProfessions;
+        */
+        const topProfessions =selectedProfession;
+        // Set up scales
+        const xScale = d3.scaleBand()
+            .domain(topProfessions.map(d => d.Profession))
+            .range([0, width])
+            .padding(0.1);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(topProfessions, d => +d.Avg_Score)])
+            .nice()
+            .range([height, 0]);
+
+        // Clear existing bars
+        svgBartChart.selectAll(".bar").remove();
+        svgBartChart.selectAll(".axis").remove();
+
+        // Add bars to the chart
+        svgBartChart.selectAll(".bar")
+            .data(topProfessions)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", d => xScale(d.Profession))
+            .attr("y", d => yScale(d.Avg_Score))
+            .attr("width", xScale.bandwidth())
+            .attr("height", d => height - yScale(d.Avg_Score));
+
+        // Add X axis
+        svgBartChart.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(xScale));
+
+        // Add Y axis
+        svgBartChart.append("g")
+            .attr("class", "axis")
+            .call(d3.axisLeft(yScale));
+    }
+
+    // Initial load
+    loadCSVAndPopulateDropdown();
+    loadData(filename);
 </script>
 </body>
 </html>
