@@ -120,7 +120,38 @@
         .append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
-
+		d3.select("#yearDropdown").on("change", function() {
+			const selectedYear = d3.select(this).property("value");
+			console.log("Selected:", selectedYear);  
+			//Year_2
+			switch(selectedYear){
+				case "Year_1":
+					filename="12hottest_jobs_by_state.csv"
+					break;
+				case "Year_2":
+					filename="24hottest_jobs_by_state.csv"
+					break;
+				case "Year_3":
+					filename="36hottest_jobs_by_state.csv"
+					break;
+				case "Year_4":
+					filename="48hottest_jobs_by_state.csv"
+					break;
+				case "Year_5":
+					filename="60hottest_jobs_by_state.csv"
+					break;
+				// You can add more cases as needed
+				default:
+					filename="12hottest_jobs_by_state.csv"
+					break;
+			}
+			//console.log(filename);
+			document.querySelector("#professionDropDown").selectedIndex = 0;
+			loadData(filename+"?v=" + new Date().getTime());
+			document.querySelector("#professionDropDown").dispatchEvent(new Event("change"));
+			//load the year CSV file here
+		});
+		
     function loadCSVAndPopulateDropdown() {
         d3.csv(filename).then(function(data) {
             const professions = Array.from(new Set(data.map(d => d.Profession.trim())));
@@ -152,7 +183,7 @@
                 // Default color for all states
                 return "lightblue";
             });
-
+		svg.selectAll("text").remove();
         // Highlight the matching states
         svg.selectAll("path")
             .filter(function(d) {
@@ -161,7 +192,23 @@
                     d.properties.topProfessions.some(p => p.Profession.trim() === selectedProfession);
             })
             .attr("class", "state-highlight")  // Add class to highlight the state
-            .style("fill", "yellow"); // You can adjust this color as needed
+            .style("fill", "yellow")
+			.each(function(d) {
+				const bbox = this.getBBox();  // Get bounding box of the path
+
+				// Calculate the center of the bounding box
+				const centerX = bbox.x + bbox.width / 2;
+				const centerY = bbox.y + bbox.height / 2;
+		
+				// Add the text at the center of the bounding box
+				svg.append("text")
+					.attr("x", centerX)           // X position from bounding box center
+					.attr("y", centerY)           // Y position from bounding box center
+					.attr("text-anchor", "middle")// Center the text
+					.attr("font-size", "12px")    // Adjust font size
+					.attr("fill", "black")        // Text color
+					.text(selectedProfession);    // Text content (profession name)    
+			});
 
        
     });
@@ -250,52 +297,59 @@
     }
 
     // Function to render the bar chart for the selected state or profession
-    function renderBarChart(selectedProfession) {
-        // Find the data for the selected profession
-        /*
-        const stateData = professionData.find(d => d.topProfessions.some(p => p.Profession.trim() === selectedProfession));
-        if (!stateData) return;  // Exit if no data found for the selected profession
+    function renderBarChart(data) {// Select the div where the bar chart will be displayed
+    const chartDiv = div.append("div")
+                        .attr("class", "bar-chart-container")
+                        .style("margin-top", "20px");
 
-        // Filter the top 3 professions
-        const topProfessions = stateData.topProfessions;
-        */
-        const topProfessions =selectedProfession;
-        // Set up scales
-        const xScale = d3.scaleBand()
-            .domain(topProfessions.map(d => d.Profession))
-            .range([0, width])
-            .padding(0.1);
+    // Set up chart dimensions
+    const margin = { top: 20, right: 20, bottom: 40, left: 40 };
+    const width = 200 - margin.left - margin.right;
+    const height = 150 - margin.top - margin.bottom;
 
-        const yScale = d3.scaleLinear()
-            .domain([0, d3.max(topProfessions, d => +d.Avg_Score)])
-            .nice()
-            .range([height, 0]);
+    // Create an SVG element to hold the bar chart
+    const svg = chartDiv.append("svg")
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom)
+                        .append("g")
+                        .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        // Clear existing bars
-        svgBartChart.selectAll(".bar").remove();
-        svgBartChart.selectAll(".axis").remove();
+    // Define scales for the bar chart
+    const x = d3.scaleBand()
+                .domain(data.map(d => d.Profession))
+                .range([0, width])
+                .padding(0.1);
 
-        // Add bars to the chart
-        svgBartChart.selectAll(".bar")
-            .data(topProfessions)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", d => xScale(d.Profession))
-            .attr("y", d => yScale(d.Avg_Score))
-            .attr("width", xScale.bandwidth())
-            .attr("height", d => height - yScale(d.Avg_Score));
+    const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.Avg_Score)])
+                .nice()
+                .range([height, 0]);
 
-        // Add X axis
-        svgBartChart.append("g")
-            .attr("class", "axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(xScale));
+    // Append x-axis
+    svg.append("g")
+       .selectAll(".bar")
+       .data(data)
+       .enter().append("rect")
+       .attr("class", "bar")
+       .attr("x", d => x(d.Profession))
+       .attr("y", d => y(d.Avg_Score))
+       .attr("width", x.bandwidth())
+       .attr("height", d => height - y(d.Avg_Score))
+       .attr("fill", "steelblue");
 
-        // Add Y axis
-        svgBartChart.append("g")
-            .attr("class", "axis")
-            .call(d3.axisLeft(yScale));
-    }
+    // Append x-axis labels
+    svg.append("g")
+       .attr("transform", `translate(0,${height})`)
+       .call(d3.axisBottom(x))
+       .selectAll("text")
+       .style("text-anchor", "middle")
+       .style("font-size", "10px")
+       .style("transform", "rotate(-45deg)");
+
+    // Append y-axis
+    svg.append("g")
+       .call(d3.axisLeft(y));
+}
 
     // Initial load
     loadCSVAndPopulateDropdown();
