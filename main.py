@@ -1,20 +1,16 @@
 #pip install pandas openpyxl
 import requests
 import json
-import prettytable
-from pyspark.sql.types import *
-from pyspark.sql.functions import *
-from pyspark.sql.types import *
-from pyspark.sql import SparkSession
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import tensorflow as tf
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
+import os
+import shutil
+
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
@@ -207,7 +203,7 @@ if __name__ == '__main__':
 
 
     series_data = [
-        ['SMS01000000000000026,SMS01000000500000026,JTS000000020000000JOR', 'Total nonfarm', 'Alabama'],
+        ['JTS000000020000000JOR', 'Total nonfarm', 'Alabama'],
         ['JTS000000020000000JOR', 'Total nonfarm', 'Alaska'],
         ['JTS000000040000000JOR', 'Total nonfarm', 'Arizona'],
         ['JTS000000050000000JOR', 'Total nonfarm', 'Arkansas'],
@@ -310,5 +306,24 @@ if __name__ == '__main__':
     df_bls_combined.to_csv('professionsoutput.csv', index=False)
     for n in range(12, 61, 12):
         train_model_and_predict_LinearRegression(df_bls_combined,n)
+        df_bls_combined =pd.read_csv('professionsoutput.csv')
+    source_folder = os.getcwd()
+    target_folder = os.path.join(source_folder, 'UI')
+    if not os.path.exists(target_folder):
+        os.makedirs(target_folder)
 
+    # Iterate through all files in the current working directory
+    for filename in os.listdir(source_folder):
+        # Check if '_state' is in the filename
+        if 'jobs_by_state' in filename:
+            source_path = os.path.join(source_folder, filename)
+            target_path = os.path.join(target_folder, filename)
+
+            # Check if it's a file (not a directory)
+            if os.path.isfile(source_path):
+                # Copy the file to the target folder
+                shutil.copy(source_path, target_path)
+                print(f"Copied: {filename}")
+
+    print("File copying complete.")
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
