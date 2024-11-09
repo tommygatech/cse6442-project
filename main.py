@@ -22,9 +22,11 @@ def print_hi(name):
 def get_data_from_bls(seriesID,startYr,endYr,bls_key,industry_name,state):
     headers = {'Content-type': 'application/json'}
     bls_api_url = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'
+    series_ids = seriesID.split(',')
 
+    # Wrap each ID in double quotes and join with commas
     data = json.dumps({
-        "seriesid": [seriesID],
+        "seriesid": series_ids,
         "startyear": startYr,
         "endyear": endYr,
         "registrationKey": bls_key
@@ -43,11 +45,12 @@ def get_data_from_bls(seriesID,startYr,endYr,bls_key,industry_name,state):
         seriesId = series['seriesID']
         for item in series['data']:
             year = item['year']
-            period = item['periodName']
+            period = item['period']
             value = item['value']
+            periodName = item['periodName']
 
             if 'M01' <= period <= 'M12':
-                series_list.append([seriesId,state, industry_name, year, period, value])
+                series_list.append([seriesId,state, industry_name, year, periodName, value])
 
     return series_list
 def create_lstm_model(input_shape):
@@ -201,8 +204,10 @@ if __name__ == '__main__':
             print(filtered_data)
             allProfessions.append(filtered_data)
             print()  # Add a newline for better readability
+
+
     series_data = [
-        ['JTS000000010000000JOR', 'Total nonfarm', 'Alabama'],
+        ['SMS01000000000000026,SMS01000000500000026,JTS000000020000000JOR', 'Total nonfarm', 'Alabama'],
         ['JTS000000020000000JOR', 'Total nonfarm', 'Alaska'],
         ['JTS000000040000000JOR', 'Total nonfarm', 'Arizona'],
         ['JTS000000050000000JOR', 'Total nonfarm', 'Arkansas'],
@@ -297,12 +302,13 @@ if __name__ == '__main__':
                     "industry_name": industry_name,
                     "year": row["year"],
                     "period": row["period"],
-                    "value": row["value"] * value_multiplier  # Multiply the value by the multiplier
+                    "value": float(row["value"]) * float(value_multiplier)  # Multiply the value by the multiplier
                 }
                 combinedData.append(new_row)
     #columns = ["seriesID", "state", "industry_name", "year", "period", "value"]
     df_bls_combined = pd.DataFrame(combinedData, columns=columns)
     df_bls_combined.to_csv('professionsoutput.csv', index=False)
-    train_model_and_predict_LinearRegression(df_bls_combined,12)
+    for n in range(12, 61, 12):
+        train_model_and_predict_LinearRegression(df_bls_combined,n)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
