@@ -149,15 +149,19 @@
 			//console.log(filename);
 			document.querySelector("#professionDropDown").selectedIndex = 0;
 			loadData(filename+"?v=" + new Date().getTime());
+            loadCSVAndPopulateDropdown(filename+"?v=" + new Date().getTime());
 			document.querySelector("#professionDropDown").dispatchEvent(new Event("change"));
 			//load the year CSV file here
 		});
 		
-    function loadCSVAndPopulateDropdown() {
+    function loadCSVAndPopulateDropdown(filename) {
         d3.csv(filename).then(function(data) {
-            const professions = Array.from(new Set(data.map(d => d.Profession.trim())));
+            const professions = Array.from(new Set(
+            data.map(d => d.Profession ? d.Profession.trim() : "").filter(d => d !== "")
+            ));
+            professions.sort();
             const selectElement = d3.select("#professionDropDown");
-
+            selectElement.selectAll("option").remove();
             selectElement.append("option")
                 .attr("value", "")
                 .text("Select a profession");
@@ -353,7 +357,7 @@
 }
 
     // Initial load
-    loadCSVAndPopulateDropdown();
+    loadCSVAndPopulateDropdown(filename);
     loadData(filename);
 </script>
 </body>
