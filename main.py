@@ -11,6 +11,11 @@ import shutil
 import warnings
 import json
 import requests
+import time
+from sklearn.linear_model import Ridge
+import pandas as pd
+import numpy as np
+
 library_name = 'numpy'
 if library_name in sys.modules:
     print("NumPy is already imported!")
@@ -18,12 +23,6 @@ else:
     # Install the library if not imported
     subprocess.check_call([sys.executable, "-m", "pip", "install", library_name])
     import numpy as np
-library_name = 'requests'
-if library_name in sys.modules:
-    print("requests is already imported!")
-else:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", library_name])
-
 
 library_name = 'pandas'
 if library_name in sys.modules:
@@ -31,22 +30,15 @@ if library_name in sys.modules:
 else:
     subprocess.check_call([sys.executable, "-m", "pip", "install", library_name])
     import pandas as pd
-library_name = 'tensorflow'
-if library_name in sys.modules:
-    print("tensorflow is already imported!")
-else:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", library_name])
-    import tensorflow as tf
 library_name = 'scikit-learn'
 if library_name in sys.modules:
     print("scikit-learn is already imported!")
 else:
     subprocess.check_call([sys.executable, "-m", "pip", "install", library_name])
-    from sklearn.preprocessing import MinMaxScaler
-    from sklearn.model_selection import train_test_split
-    from sklearn.linear_model import LinearRegression
-    from sklearn.preprocessing import (PolynomialFeatures, StandardScaler)
-    from sklearn.metrics import mean_squared_error
+    from sklearn.model_selection import (train_test_split,RandomizedSearchCV, TimeSeriesSplit)
+    from sklearn.linear_model import LinearRegression, Ridge
+    from sklearn.preprocessing import (PolynomialFeatures, StandardScaler,OneHotEncoder,MinMaxScaler)
+    from sklearn.metrics import (mean_squared_error, make_scorer)
     from sklearn.model_selection import KFold
     from sklearn.ensemble import RandomForestRegressor
     from sklearn.model_selection import GridSearchCV
@@ -73,8 +65,7 @@ else:
 
 
 def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
+    print(f'Hi {name}')
 
 def get_data_from_bls(seriesID,startYr,endYr,bls_key,industry_name,state):
     headers = {'Content-type': 'application/json'}
@@ -110,128 +101,80 @@ def get_data_from_bls(seriesID,startYr,endYr,bls_key,industry_name,state):
                 series_list.append([seriesId,state, industry_name, year, periodName, value])
 
     return series_list
-def create_lstm_model(input_shape):
-    model = tf.keras.Sequential([
-        tf.keras.layers.Input(shape=input_shape),
-        tf.keras.layers.LSTM(50, return_sequences=True),
-        tf.keras.layers.LSTM(25),
-        tf.keras.layers.Dense(1)
-    ])
-    model.compile(optimizer='adam', loss='mean_squared_error')
-    return model
-def train_model_and_predict(data,number_of_month):
 
-    data.set_index('seriesID', inplace=True)
+def train_model_and_predict_LinearRegression(data, number_of_months, max_lag=12):
+    # Set index and extract unique states
+    #data.set_index('seriesID', inplace=True)
+
     states = data['state'].unique()
     professions = data['industry_name'].unique()
-    data['Hot_Profession_Score'] = data['value'] * np.random.uniform(0.01, 0.2, size=len(data))
-    # Store predictions
-    predictions = []
-    future_predictions = []
-    # Train and predict for each profession in each state
-    for state in states:
-        for profession in professions:
-            # Filter data
-            filtered_data = data[(data['industry_name'] == profession) & (data['state'] == state)][['Hot_Profession_Score']]
-            #filtered_data = data[(data['state'] == state)][['Hot_Profession_Score']]
-            if filtered_data.empty:
-                continue
-            '''lst'''
-            # Prepare the dataset
+    data = data.drop('seriesID', axis=1)
+    data = data.sort_values(by=['state', 'industry_name', 'year', 'period'])
+    data['Hot_Profession_Score'] = data['value']
 
-            time_step = 3
-            X, y = [], []
-            scaler = MinMaxScaler()
-            scaled_data = scaler.fit_transform(filtered_data)
-            for i in range(len(scaled_data) - time_step - 1):
-                X.append(scaled_data[i:(i + time_step), 0])
-                y.append(scaled_data[i + time_step, 0])
-            X, y = np.array(X), np.array(y)
-            X = X.reshape(X.shape[0], X.shape[1], 1)
-
-            # Create and train the LSTM model
-            model = create_lstm_model(input_shape=(X.shape[1], 1))
-            model.fit(X, y, epochs=5, batch_size=1, verbose=0)
-
-            # Make predictions for the next 5 years (60 months)
-
-            last_sequence = scaled_data[-time_step:].reshape(1, time_step, 1)
-
-            for _ in range(number_of_month):  # Predict 60 months ahead
-                next_prediction = model.predict(last_sequence)
-                #next_prediction = model.predict(X_test)
-                future_predictions.append(next_prediction[0, 0])
-                last_sequence = np.append(last_sequence[:, 1:, :], next_prediction.reshape(1, 1, 1), axis=1)
-
-            future_predictions = scaler.inverse_transform(np.array(future_predictions).reshape(-1, 1))
-
-
-    predictions_df = pd.DataFrame(future_predictions, columns=['State', 'Profession', 'Avg_Score'])
-
-    # Sort and get the top 5 hottest jobs for each state
-    top_hottest_jobs = predictions_df.sort_values(by=['State', 'Avg_Score'], ascending=[True, False])
-    top_5_jobs = top_hottest_jobs.groupby('State').head(10)
-
-
-    # Save the results to a CSV file
-    top_5_jobs.to_csv(f"{number_of_month}_hottest_jobs_by_state.csv", index=False)
-    print("Top 5 hottest jobs for each state saved to 'hottest_jobs_by_state.csv'.")
-
-def train_model_and_predict_LinearRegression(data, number_of_month):
-    # Set index and extract unique states and professions
-    data.set_index('seriesID', inplace=True)
-    states = data['state'].unique()
-    professions = data['industry_name'].unique()
-
-    # Calculate Hot Profession Score
-    data['Hot_Profession_Score'] = data['value'] * np.random.uniform(0.01, 0.2, size=len(data))
-
-    # Store predictions
     predictions = []
 
-    # Train and predict for each profession in each state
     for state in states:
         for profession in professions:
-            # Filter data
-            filtered_data = data[(data['industry_name'] == profession) & (data['state'] == state)][
-                ['Hot_Profession_Score']]
-            if filtered_data.empty:
+            group_data = data[(data['state'] == state) & (data['industry_name'] == profession)].copy()
+            if group_data.empty:
                 continue
 
-            # Prepare the dataset
-            X = np.arange(len(filtered_data)).reshape(-1, 1)  # Time as feature
-            y = filtered_data['Hot_Profession_Score'].values
+            # Create lagged variables for 'value' column
+            group_data = create_lags(group_data, max_lag)
+            lag_columns = [f'Lag_{i}' for i in range(1, max_lag + 1)]
+            group_data.dropna(inplace=True)  # Drop any rows with missing values
 
-            # Split the dataset into training and testing sets
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=13)
-            # Use Polynomial Features
-            poly = PolynomialFeatures(degree=2)
-            X_poly_train = poly.fit_transform(X_train)
-            X_poly_test = poly.transform(X_test)
-            model = LinearRegression()
+            if group_data.empty or len(group_data) < max_lag:
+                continue
 
-            # Fit the model to the training data
-            model.fit(X_poly_train, y_train)
-            pred_months = np.arange(len(filtered_data), len(filtered_data) + number_of_month).reshape(-1, 1)
-            pred_months_poly = poly.transform(pred_months)
-            predictions_array = model.predict(pred_months_poly)
-            #predictions_array = model.predict(pred_months)
+            X = group_data[lag_columns].values
+            y = group_data['Hot_Profession_Score'].values
 
-            # Calculate the average predicted score
-            avg_score = np.mean(predictions_array)
-            predictions.append((state, profession, avg_score))
+            # Initialize the Ridge regression model
+            model = Ridge(alpha=10)
+            model.fit(X, y)
 
-    # Create DataFrame from predictions
-    predictions_df = pd.DataFrame(predictions, columns=['State', 'Profession', 'Avg_Score'])
+            # Start with the last available lags for prediction
+            last_known_lags = X[-1].reshape(1, -1)
+            avg_score = model.predict(last_known_lags)[0]
+            future_predictions = {}
+
+            for month in range(1, number_of_months + 1):  # Predict for up to the maximum months
+                next_month_lags = np.roll(last_known_lags.copy(), -1, axis=1)
+                next_month_lags[0, -1] = avg_score
+
+                try:
+                    avg_score = model.predict(next_month_lags)[0] # Predict next month
+                except ValueError as e:
+                    print(f"Error predicting for state: {state}, profession: {profession}, month: {month}: {e}")
+                    break
+
+                # Avoid large values by clipping if necessary (to avoid overflow)
+                avg_score = np.clip(avg_score, -1e10, 100000)
+
+                # Store prediction only if it's in the desired future periods
+                if month == number_of_months:
+                    future_predictions[month] = avg_score
+
+                last_known_lags = next_month_lags
+
+            # Store the prediction for the current profession and state
+            for month_ahead, prediction in future_predictions.items():
+                predictions.append((state, profession, prediction))
 
     # Sort and get the top 10 hottest jobs for each state
+    predictions_df = pd.DataFrame(predictions, columns=['State', 'Profession', 'Avg_Score'])
+    predictions_df['Avg_Score'] = predictions_df['Avg_Score'].round(2) # Round to 2 decimal places for readability
+
     top_hottest_jobs = predictions_df.sort_values(by=['State', 'Avg_Score'], ascending=[True, False])
     top_10_jobs = top_hottest_jobs.groupby('State').head(10)
 
     # Save the results to a CSV file
-    output_filename = f"{number_of_month}hottest_jobs_by_state.csv"
+    output_filename = f"{number_of_months}hottest_jobs_by_state.csv"
     top_10_jobs.to_csv(output_filename, index=False)
     print(f"Top 10 hottest jobs for each state saved to '{output_filename}'.")
+
 
 def train_model_and_predict_with_different_algorithms(data, number_of_month, k=5):
     data.set_index('seriesID', inplace=True)
@@ -342,37 +285,97 @@ def train_model_and_predict_with_different_algorithms(data, number_of_month, k=5
     mse_values = [avg_mse_lr, avg_mse_rf, avg_mse_arima, avg_mse_ensemble]
     best_model = models[np.argmin(mse_values)]
     print(f"Best Model: {best_model}")
+def train_model_and_predict_RandomForest(data, number_of_months, max_lag=12):
+    states = data['state'].unique()
+    professions = data['industry_name'].unique()
+    data = data.drop('seriesID', axis=1)
+    data = data.sort_values(by=['state', 'industry_name', 'year', 'period'])
+    data['Hot_Profession_Score'] = data['value']
 
-if __name__ == '__main__':
-    print_hi('Team 90')
-    # cleanData
-    sheets_array = []
-    sheets = pd.read_excel('occupation.xlsx', sheet_name=None,header=None)
-    # Loop through each sheet and print its content
-    for sheet_name, df in sheets.items():
-        sheets_array.append(df)
-    allProfessions=[]
-    for index, df in enumerate(sheets_array):
-        if 2 < index < 6:
-            column_names = df.columns
-            col_a = column_names[0]
-            col_e = column_names[5]  # 'Unnamed: 4'
-            # Filter the DataFrame
-            # Exclude footnotes based on a condition (e.g., exclude rows that contain "Footnote")
-            filtered_data = df.iloc[3:]  # Start from the 4th row
+    # Store predictions
+    predictions = []
+    data_grouped_by_year = data.groupby(['state', 'industry_name', 'year']).agg({
+        'value': 'sum',
+        'Hot_Profession_Score': 'sum'
+    }).reset_index()
+    s=0
+    for state in states:
+        s = s + 1
+        state_max_lag = max_lag + s
+        # Create lagged variables for 'value' column
+        data_with_lags = create_lags(data_grouped_by_year.copy(), state_max_lag)
+        lag_columns = [f'Lag_{i}' for i in range(1, state_max_lag + 1)]
+        data_with_lags.dropna(inplace=True)  # Drop any rows with missing values
 
-            # Example condition to exclude footnotes
-            # Adjust the condition as necessary based on your data
-            filtered_data = filtered_data[~filtered_data[col_a].astype(str).str.contains('Footnote', na=False)]
-            filtered_data = filtered_data[~filtered_data[col_a].astype(str).str.contains('Footnote', na=False)]
-            filtered_data = filtered_data.dropna(subset=[col_a, col_e])
-            filtered_data = filtered_data[[col_a, col_e]]  # Select only the desired columns
-            print(f"Contents of Sheet {index + 1}:")
-            print(filtered_data)
-            allProfessions.append(filtered_data)
-            print()  # Add a newline for better readability
+        X = data_with_lags[lag_columns].values
+        y = data_with_lags['Hot_Profession_Score'].values
 
+        # Initialize the model and PolynomialFeatures
+        poly = PolynomialFeatures(degree=2)
+        X_poly_train = poly.fit_transform(X)
+        # Initialize RandomForestRegressor
+        model = RandomForestRegressor(n_estimators=150, random_state=42)
+        model.fit(X_poly_train, y)
+        for profession in professions:
+            filtered_data = data_with_lags[
+                (data_with_lags['industry_name'] == profession) & (data_with_lags['state'] == state)]
+            print(f'state:{state} - profession:{profession}')
+            if filtered_data.empty:
+                continue
 
+            # Sort the data by year (ascending order)
+            filtered_data = filtered_data.sort_values(by='year', ascending=False)
+            last_year_data = filtered_data.iloc[0]
+            pred_lags = last_year_data[lag_columns].values.reshape(1, -1)
+            pred_months_poly = poly.transform(pred_lags)
+            avg_score = model.predict(pred_months_poly)[0]
+
+            for years_ahead in range(1, number_of_months + 1):  # Predict for 1 to 'number_of_years' years ahead
+                months_ahead = years_ahead * 12  # Convert years to months
+                for month in range(months_ahead):
+                    future_pred_lags = np.roll(pred_lags.copy(), shift=-1, axis=1)
+                    future_pred_lags[0, -1] = avg_score
+                    future_pred_lags = future_pred_lags.astype(np.float64)
+
+                    if not np.all(np.isfinite(future_pred_lags)):
+                        print(f"Warning: NaN or Inf detected in future predictions. Skipping this prediction.")
+                        break
+                    future_pred_poly = poly.transform(future_pred_lags)
+                    try:
+                        avg_score = model.predict(future_pred_poly)[0]
+                    except ValueError as e:
+                        print(
+                            f"Error predicting for state: {state}, profession: {profession}, year_ahead: {years_ahead}: {e}")
+                        continue
+
+                    avg_score = np.clip(avg_score, -1e10, 100000)  # Limit the values to a reasonable range
+
+                # Store the prediction for the current profession and state
+                predictions.append((state, profession, avg_score))
+
+    # Create DataFrame from predictions
+    predictions_df = pd.DataFrame(predictions, columns=['State', 'Profession', 'Avg_Score'])
+
+    # Remove duplicate predictions (if any), based on State, Profession, and Year
+    predictions_df = predictions_df.drop_duplicates(subset=['State', 'Profession'])
+
+    # Sort and get the top 10 hottest jobs for each state
+    predictions_df['Avg_Score'] = predictions_df['Avg_Score'].round(2)  # Round to 2 decimal places for readability
+    top_hottest_jobs = predictions_df.sort_values(by=['State', 'Avg_Score'], ascending=[True, False])
+    top_10_jobs = top_hottest_jobs.groupby('State').head(10)
+
+    if number_of_months < 12:
+        number_of_months = number_of_months * 12
+
+    # Save the results to a CSV file
+    output_filename = f"{number_of_months}hottest_jobs_by_state.csv"
+    top_10_jobs.to_csv(output_filename, index=False)
+    print(f"Top 10 hottest jobs for each state saved to '{output_filename}'.")
+def create_lags(data_input, max_lag):
+    for lag in range(1, max_lag + 1):
+        data_input[f'Lag_{lag}'] = np.roll(data_input['value'], lag)
+    return data_input
+def get_series_data():
     series_data = [
         ['JTS000000020000000JOR', 'Total nonfarm', 'Alabama'],
         ['JTS000000020000000JOR', 'Total nonfarm', 'Alaska'],
@@ -426,6 +429,58 @@ if __name__ == '__main__':
         ['JTS000000550000000JOR', 'Total nonfarm', 'Wisconsin'],
         ['JTS000000560000000JOR', 'Total nonfarm', 'Wyoming']
     ]
+    return series_data
+def copy_files():
+    source_folder = os.getcwd()
+    target_folder = os.path.join(source_folder, 'UI')
+    if not os.path.exists(target_folder):
+        os.makedirs(target_folder)
+
+        # Iterate through all files in the current working directory
+    for filename in os.listdir(source_folder):
+        # Check if '_state' is in the filename
+        if 'jobs_by_state' in filename:
+            source_path = os.path.join(source_folder, filename)
+            target_path = os.path.join(target_folder, filename)
+
+            # Check if it's a file (not a directory)
+            if os.path.isfile(source_path):
+                # Copy the file to the target folder
+                shutil.copy(source_path, target_path)
+                print(f"Copied: {filename}")
+
+    print("File copying complete.")
+if __name__ == '__main__':
+    print_hi('Team 90')
+    # cleanData
+    sheets_array = []
+    sheets = pd.read_excel('occupation.xlsx', sheet_name=None,header=None)
+    # Loop through each sheet and print its content
+    for sheet_name, df in sheets.items():
+        sheets_array.append(df)
+    allProfessions=[]
+    for index, df in enumerate(sheets_array):
+        if 2 < index < 6:
+            column_names = df.columns
+            col_a = column_names[0]
+            col_e = column_names[5]  # 'Unnamed: 4'
+            # Filter the DataFrame
+            # Exclude footnotes based on a condition (e.g., exclude rows that contain "Footnote")
+            filtered_data = df.iloc[3:]  # Start from the 4th row
+
+            # Example condition to exclude footnotes
+            # Adjust the condition as necessary based on your data_input
+            filtered_data = filtered_data[~filtered_data[col_a].astype(str).str.contains('Footnote', na=False)]
+            filtered_data = filtered_data[~filtered_data[col_a].astype(str).str.contains('Footnote', na=False)]
+            filtered_data = filtered_data.dropna(subset=[col_a, col_e])
+            filtered_data = filtered_data[[col_a, col_e]]  # Select only the desired columns
+            print(f"Contents of Sheet {index + 1}:")
+            print(filtered_data)
+            allProfessions.append(filtered_data)
+            print()  # Add a newline for better readability
+
+
+    series_data = get_series_data()
     # Create a DataFrame
     df_series = pd.DataFrame(series_data, columns=["seriesID", "industry_name", "state"])
     print(df_series)
@@ -435,12 +490,12 @@ if __name__ == '__main__':
     endYr = '2024'
     bls_key = 'a2baff6ba61547918ea822dd565b8e55'  # Replace with your actual BLS API key
 
-    # Initialize the list to capture the data
+    # Initialize the list to capture the data_input
     complete_list = []
-
+    print("invoking api section")
     try:
         for index, row in df_series.iterrows():
-            print("Loading data for {}...".format(row['seriesID']))
+            print("Loading data_input for {}...".format(row['seriesID']))
             series_list = get_data_from_bls(row['seriesID'], startYr, endYr, bls_key, row['industry_name'],row['state'])
             complete_list.extend(series_list)
 
@@ -474,27 +529,17 @@ if __name__ == '__main__':
                 combinedData.append(new_row)
     #columns = ["seriesID", "state", "industry_name", "year", "period", "value"]
     df_bls_combined = pd.DataFrame(combinedData, columns=columns)
-    df_bls_combined.to_csv('professionsoutput.csv', index=False)
+    # Check if the DataFrame has data before saving to a file
+    if not df_bls_combined.empty:
+        df_bls_combined.to_csv('professionsoutput.csv', index=False)  # Save to CSV (or another file format)
+    else:
+        print("DataFrame is empty. Nothing to save.")
+    algorithm = "LR"
+    dataInput = pd.read_csv('professionsoutput.csv')
+    max_lag=9
     for n in range(12, 61, 12):
-        train_model_and_predict_LinearRegression(df_bls_combined,n)
-        df_bls_combined =pd.read_csv('professionsoutput.csv')
-    source_folder = os.getcwd()
-    target_folder = os.path.join(source_folder, 'UI')
-    if not os.path.exists(target_folder):
-        os.makedirs(target_folder)
-
-    # Iterate through all files in the current working directory
-    for filename in os.listdir(source_folder):
-        # Check if '_state' is in the filename
-        if 'jobs_by_state' in filename:
-            source_path = os.path.join(source_folder, filename)
-            target_path = os.path.join(target_folder, filename)
-
-            # Check if it's a file (not a directory)
-            if os.path.isfile(source_path):
-                # Copy the file to the target folder
-                shutil.copy(source_path, target_path)
-                print(f"Copied: {filename}")
-
-    print("File copying complete.")
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        if algorithm == "LR":
+            train_model_and_predict_LinearRegression(dataInput.copy(), n, max_lag=max_lag)
+        else:
+            train_model_and_predict_RandomForest(dataInput.copy(), n, max_lag=max_lag)
+    copy_files()
